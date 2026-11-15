@@ -1,1 +1,163 @@
-<!doctype html><title>fomo desk</title><p>desk test 1794774450</p>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>FOMO desk</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #10110e;
+      --panel: #181a15;
+      --line: #2c2e26;
+      --text: #eceadf;
+      --muted: #9a9788;
+      --up: #c6f25a;
+      --down: #ff7a62;
+      --amber: #e6c15a;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font: 14px/1.45 ui-sans-serif, "Segoe UI", sans-serif;
+    }
+    header, main { width: min(1180px, calc(100% - 32px)); margin: 0 auto; }
+    header { padding: 28px 0 8px; }
+    h1 { font-size: 22px; font-weight: 650; letter-spacing: 0; margin: 0; }
+    h2 { font-size: 15px; font-weight: 650; margin: 0 0 8px; }
+    .meta, .note, .bots, footer { color: var(--muted); }
+    .meta { margin: 6px 0 0; }
+    .note, .bots {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 12px 14px;
+      margin: 14px 0;
+    }
+    .bots code, footer code { color: var(--text); }
+    section { margin: 22px 0 28px; }
+    .scroll { overflow-x: auto; border: 1px solid var(--line); border-radius: 10px; }
+    table { width: 100%; border-collapse: collapse; font-variant-numeric: tabular-nums; }
+    th, td { text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--line); white-space: nowrap; }
+    th { color: var(--muted); font-size: 12px; font-weight: 600; background: #141611; }
+    tr:last-child td { border-bottom: 0; }
+    a { color: var(--amber); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .up { color: var(--up); }
+    .down { color: var(--down); }
+    .sym { font-weight: 650; }
+    .sub { display: block; color: var(--muted); font-size: 12px; font-weight: 400; }
+    footer { width: min(1180px, calc(100% - 32px)); margin: 0 auto 32px; font-size: 12px; }
+    .empty { padding: 14px; color: var(--muted); }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>FOMO desk</h1>
+    <p class="meta" id="meta">Loading the latest scan…</p>
+  </header>
+  <main>
+    <p class="note" id="note"></p>
+    <section>
+      <h2>Volume spikes</h2>
+      <div class="scroll" id="spikes"></div>
+    </section>
+    <section>
+      <h2>New pairs with volume</h2>
+      <div class="scroll" id="fresh"></div>
+    </section>
+    <section>
+      <h2>Just opened, already trading</h2>
+      <div class="scroll" id="opened"></div>
+    </section>
+    <div class="bots">
+      Other bots on this account read <code>data/latest.json</code> and the hourly copies in <code>data/scans/</code>.
+      Leave a note in <code>data/inbox/</code>. This page only displays the scan. It does not send orders.
+    </div>
+  </main>
+  <footer id="foot"></footer>
+  <script>
+    const chains = { solana: "Solana", base: "Base", bsc: "BNB", ethereum: "Ethereum", robinhood: "Robinhood" };
+
+    function money(value) {
+      if (value == null || value === 0) return "—";
+      const abs = Math.abs(value);
+      const sign = value < 0 ? "-" : "";
+      if (abs >= 1e9) return sign + "$" + (abs / 1e9).toFixed(2) + "B";
+      if (abs >= 1e6) return sign + "$" + (abs / 1e6).toFixed(2) + "M";
+      if (abs >= 1e3) return sign + "$" + (abs / 1e3).toFixed(1) + "k";
+      return sign + "$" + abs.toFixed(0);
+    }
+
+    function age(minutes) {
+      if (minutes == null) return "—";
+      if (minutes < 90) return Math.round(minutes) + "m";
+      const hours = Math.floor(minutes / 60);
+      const rest = Math.round(minutes % 60);
+      if (hours < 48) return hours + "h " + rest + "m";
+      return Math.round(hours / 24) + "d";
+    }
+
+    function change(value) {
+      if (value == null) return "—";
+      const cls = value > 0 ? "up" : value < 0 ? "down" : "";
+      const text = (value > 0 ? "+" : "") + value.toFixed(1) + "%";
+      return '<span class="' + cls + '">' + text + "</span>";
+    }
+
+    function tokenCell(row) {
+      const href = (row.links && row.links.dexscreener) || "#";
+      const pair = row.quote ? row.symbol + " / " + row.quote : row.symbol;
+      return '<td><a class="sym" href="' + href + '">' + escapeHtml(pair) + '</a><span class="sub">' +
+        escapeHtml(row.name || "") + "</span></td>";
+    }
+
+    function escapeHtml(value) {
+      return String(value).replace(/[&<>"']/g, (ch) => ({
+        "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;"
+      })[ch]);
+    }
+
+    function table(rows, empty) {
+      if (!rows || !rows.length) return '<p class="empty">' + empty + "</p>";
+      const head = "<tr><th>Chain</th><th>Pair</th><th>Age</th><th>5m vol</th><th>1h vol</th><th>24h vol</th><th>1h</th><th>Liquidity</th><th>FDV</th><th>Dex</th></tr>";
+      const body = rows.map((row) => "<tr><td>" + escapeHtml(chains[row.chain] || row.chain) + "</td>" +
+        tokenCell(row) +
+        "<td>" + age(row.ageMinutes) + "</td>" +
+        "<td>" + money(row.volume && row.volume.m5) + "</td>" +
+        "<td>" + money(row.volume && row.volume.h1) + "</td>" +
+        "<td>" + money(row.volume && row.volume.h24) + "</td>" +
+        "<td>" + change(row.change && row.change.h1) + "</td>" +
+        "<td>" + money(row.reserveUsd) + "</td>" +
+        "<td>" + money(row.fdvUsd) + "</td>" +
+        "<td>" + escapeHtml(row.dex || "—") + "</td></tr>").join("");
+      return "<table>" + head + body + "</table>";
+    }
+
+    fetch("data/latest.json", { cache: "no-store" })
+      .then((response) => {
+        if (!response.ok) throw new Error("latest.json " + response.status);
+        return response.json();
+      })
+      .then((scan) => {
+        const counts = scan.counts || {};
+        document.getElementById("meta").textContent =
+          "Scanned " + scan.scannedAt + " · " +
+          counts.volumeSpikes + " spikes · " +
+          counts.newPairsWithVolume + " new pairs with volume · " +
+          counts.poolsRead + " pools read";
+        document.getElementById("note").textContent = (scan.fomoApp && scan.fomoApp.note) || "";
+        document.getElementById("spikes").innerHTML = table(scan.volumeSpikes, "No volume spike cleared the filter this hour.");
+        document.getElementById("fresh").innerHTML = table(scan.newPairs, "No new pair with size this hour.");
+        document.getElementById("opened").innerHTML = table(scan.justOpened, "No just-opened pool had meaningful trades.");
+        document.getElementById("foot").innerHTML =
+          'Raw scan for other bots: <a href="data/latest.json">data/latest.json</a> · <a href="https://github.com/IAMPOIfrfr/FOMO-DESK">IAMPOIfrfr/FOMO-DESK</a>';
+      })
+      .catch((error) => {
+        document.getElementById("meta").textContent = "Could not load data/latest.json (" + error.message + ").";
+      });
+  </script>
+</body>
+</html>
