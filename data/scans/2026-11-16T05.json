@@ -1,0 +1,2007 @@
+{
+  "schema": 1,
+  "scannedAt": "2026-11-16T05:06:20Z",
+  "desk": "FOMO-DESK",
+  "fomoApp": {
+    "name": "fomo",
+    "discover": "https://fomo.family/discover",
+    "boards": [
+      "Trending",
+      "Bonding",
+      "Graduated"
+    ],
+    "signedInSessionRequired": true,
+    "note": "fomo.family does not publish its token boards without a signed-in session. This desk scans public pools on Solana, Base, and BNB Chain, the main chains that app trades, and DexScreener boosts, which also include Robinhood Chain. It does not place trades."
+  },
+  "counts": {
+    "poolsRead": 146,
+    "volumeSpikes": 7,
+    "newPairsWithVolume": 23,
+    "justOpened": 32,
+    "boosts": 32
+  },
+  "errors": [],
+  "volumeSpikes": [
+    {
+      "chain": "solana",
+      "symbol": "HOGE",
+      "name": "Hogecoin",
+      "quote": "USDC",
+      "tokenAddress": "FVzqGqRmr4UH1Fif6dewmwbJ1p4YUZCu8dcw4Efopump",
+      "poolAddress": "7CNC9gGegzEfFK8fLXiYUhdtMEeFPQZoND56U1Mxhnor",
+      "dex": "pumpswap",
+      "createdAt": "2026-11-15T06:56:10Z",
+      "ageMinutes": 1330.2,
+      "priceUsd": 0.00044588382,
+      "fdvUsd": 448039.77,
+      "reserveUsd": 72932.56,
+      "volume": {
+        "m5": 14622.01,
+        "h1": 292712.39,
+        "h6": 3081605.84,
+        "h24": 4298413.82
+      },
+      "change": {
+        "m5": 8.28,
+        "h1": -37.09,
+        "h24": 670.43
+      },
+      "txns": {
+        "m5Buys": 130,
+        "m5Sells": 73,
+        "h1Buys": 2340,
+        "h1Sells": 1712
+      },
+      "hourShare": 0.068,
+      "fiveMinutePace": 0.6,
+      "reasons": [
+        "price moved hard on real hourly volume"
+      ],
+      "source": "geckoterminal",
+      "links": {
+        "dexscreener": "https://dexscreener.com/solana/FVzqGqRmr4UH1Fif6dewmwbJ1p4YUZCu8dcw4Efopump",
+        "geckoterminal": "https://www.geckoterminal.com/solana/pools/7CNC9gGegzEfFK8fLXiYUhdtMEeFPQZoND56U1Mxhnor"
+      }
+    },
+    {
+      "chain": "base",
+      "symbol": "RST",
+      "name": "Resolut Technologies",
+      "quote": "WETH",
+      "tokenAddress": "0x291fdf7b4cd42841bbe41d3c7f7f92c5658c72c0",
+      "poolAddress": "0x2f7d481ff40c8f634c198fe7a154cac294fef3b7c5ff1c3ac21c4327b70fe6dc",
+      "dex": "uniswap-v4-base",
+      "createdAt": "2026-11-16T04:45:37Z",
+      "ageMinutes": 20.7,
+      "priceUsd": 0.0024914847,
+      "fdvUsd": 24914847.24,
+      "reserveUsd": 3737563.3,
+      "volume": {
+        "m5": 144.52,
+        "h1": 62979.55,
+        "h6": 62979.55,
+        "h24": 62979.55
+      },
+      "change": {
+        "m5": -0.26,
+        "h1": 228381.83,
+        "h24": 228381.83
+      },
+      "txns": {
+        "m5Buys": 4,
+        "m5Sells": 4,
+        "h1Buys": 26,
+        "h1Sells": 18
+      },
+      "hourShare": 1.0,
+      "fiveMinutePace": 0.03,
+      "reasons": [
+        "this hour is a large share of the day's volume",
+        "price moved hard on real hourly volume",
+        "new pair already trading size"
+      ],
+      "source": "geckoterminal",
+      "links": {
+        "dexscreener": "https://dexscreener.com/base/0x291fdf7b4cd42841bbe41d3c7f7f92c5658c72c0",
+        "geckoterminal": "https://www.geckoterminal.com/base/pools/0x2f7d481ff40c8f634c198fe7a154cac294fef3b7c5ff1c3ac21c4327b70fe6dc"
+      }
+    },
+    {
+      "chain": "base",
+      "symbol": "SOSF",
+      "name": "SOSF \ud83d\udd25",
+      "quote": "WETH",
+      "tokenAddress": "0x0599a1e885439bbdd1429587c71f59dbbfe283bd",
+      "poolAddress": "0xa4e3736ddb64128314686a9ab23d429947cc869895093056afeef3b763d52d9e",
+      "dex": "uniswap-v4-base",
+      "createdAt": "2026-11-16T04:44:28Z",
+      "ageMinutes": 21.9,
+      "priceUsd": 0.0047818373,
+      "fdvUsd": 47818373.18,
+      "reserveUsd": 7173022.65,
+      "volume": {
+        "m5": 142.47,
+        "h1": 37734.01,
+        "h6": 37734.01,
+        "h24": 37734.01
+      },
+      "change": {
+        "m5": -0.26,
+        "h1": -0.26,
+        "h24": -0.26
+      },
+      "txns": {
+        "m5Buys": 5,
+        "m5Sells": 3,
+        "h1Buys": 28,
+        "h1Sells": 18
+      },
+      "hourShare": 1.0,
+      "fiveMinutePace": 0.05,
+      "reasons": [
+        "this hour is a large share of the day's volume",
+        "new pair already trading size"
+      ],
+      "source": "geckoterminal",
+      "links": {
+        "dexscreener": "https://dexscreener.com/base/0x0599a1e885439bbdd1429587c71f59dbbfe283bd",
+        "geckoterminal": "https://www.geckoterminal.com/base/pools/0xa4e3736ddb64128314686a9ab23d429947cc869895093056afeef3b763d52d9e"
+      }
+    },
+    {
+      "chain": "solana",
+      "symbol": "WISHMAS",
+      "name": "Wishmas ",
+      "quote": "SOL",
+      "tokenAddress": "9cmXfuC26anZtH9AUWVzpUxU1UJ7PPogYxftYTepump",
+      "poolAddress": "FcsUythNUWbfT7RP2yuFp1kiWjft15du9WtgLUrrqx3p",
+      "dex": "pumpswap",
+      "createdAt": "2026-11-13T21:43:26Z",
+      "ageMinutes": 3322.9,
+      "priceUsd": 0.0002409,
+      "fdvUsd": 229997.0,
+      "marketCapUsd": 229997.0,
+      "reserveUsd": 41287.06,
+      "volume": {
+        "m5": 2492.48,
+        "h1": 33295.25,
+        "h6": 111080.02,
+        "h24": 861034.21
+      },
+      "change": {
+        "m5": 6.38,
+        "h1": 45.87,
+        "h24": 63.07
+      },
+      "txns": {
+        "m5Buys": 45,
+        "m5Sells": 62,
+        "h1Buys": 391,
+        "h1Sells": 428
+      },
+      "hourShare": 0.039,
+      "fiveMinutePace": 0.9,
+      "reasons": [
+        "price moved hard on real hourly volume"
+      ],
+      "source": "dexscreener",
+      "boostAmount": 10,
+      "links": {
+        "dexscreener": "https://dexscreener.com/solana/9cmXfuC26anZtH9AUWVzpUxU1UJ7PPogYxftYTepump",
+        "geckoterminal": "https://www.geckoterminal.com/solana/pools/FcsUythNUWbfT7RP2yuFp1kiWjft15du9WtgLUrrqx3p"
+      }
+    },
+    {
+      "chain": "base",
+      "symbol": "AO\u200aDT",
+      "name": "AODT \ud83d\udd25",
+      "quote": "WETH",
+      "tokenAddress": "0x0b917022caa17eeec6fae9dd06cbe8efe390c126",
+      "poolAddress": "0xdc7c6b6fb62768a49033c6ca54b1a990545b3cef73594f7e36b036c7b9d97b18",
+      "dex": "uniswap-v4-base",
+      "createdAt": "2026-11-16T04:45:04Z",
+      "ageMinutes": 21.3,
+      "priceUsd": 0.0047825834,
+      "fdvUsd": 47825834.27,
+      "reserveUsd": 7174141.21,
+      "volume": {
+        "m5": 144.79,
+        "h1": 28454.85,
+        "h6": 28454.85,
+        "h24": 28454.85
+      },
+      "change": {
+        "m5": -0.27,
+        "h1": 438554.83,
+        "h24": 438554.83
+      },
+      "txns": {
+        "m5Buys": 6,
+        "m5Sells": 3,
+        "h1Buys": 29,
+        "h1Sells": 18
+      },
+      "hourShare": 1.0,
+      "fiveMinutePace": 0.06,
+      "reasons": [
+        "this hour is a large share of the day's volume",
+        "price moved hard on real hourly volume",
+        "new pair already trading size"
+      ],
+      "source": "geckoterminal",
+      "links": {
+        "dexscreener": "https://dexscreener.com/base/0x0b917022caa17eeec6fae9dd06cbe8efe390c126",
+        "geckoterminal": "https://www.geckoterminal.com/base/pools/0xdc7c6b6fb62768a49033c6ca54b1a990545b3cef73594f7e36b036c7b9d97b18"
+      }
+    },
+    {
+      "chain": "solana",
+      "symbol": "Socks",
+      "name": "Socks Neobank",
+      "quote": "SOL",
+      "tokenAddress": "FS1pBmZKp2Qw1atC64GoLamHstECAos9ot8bGPgDpump",
+      "poolAddress": "AgqoLMPxk7ETjY74TnyePqKSQQYTTsCrmMVgyQRkaJK3",
+      "dex": "pumpswap",
+      "createdAt": "2026-11-15T09:45:43Z",
+      "ageMinutes": 1160.6,
+      "priceUsd": 0.0001002,
+      "fdvUsd": 96805.0,
+      "marketCapUsd": 96805.0,
+      "reserveUsd": 24353.23,
+      "volume": {
+        "m5": 3622.45,
+        "h1": 23800.53,
+        "h6": 99019.19,
+        "h24": 2203398.39
+      },
+      "change": {
+        "m5": 1.68,
+        "h1": -20.83,
+        "h24": 232.0
+      },
+      "txns": {
+        "m5Buys": 36,
+        "m5Sells": 17,
+        "h1Buys": 242,
+        "h1Sells": 202
+      },
+      "hourShare": 0.011,
+      "fiveMinutePace": 1.83,
+      "reasons": [
+        "price moved hard on real hourly volume"
+      ],
+      "source": "dexscreener",
+      "boostAmount": 50,
+      "links": {
+        "dexscreener": "https://dexscreener.com/solana/FS1pBmZKp2Qw1atC64GoLamHstECAos9ot8bGPgDpump",
+        "geckoterminal": "https://www.geckoterminal.com/solana/pools/AgqoLMPxk7ETjY74TnyePqKSQQYTTsCrmMVgyQRkaJK3"
+      }
+    },
+    {
+      "chain": "bsc",
+      "symbol": "Marvin",
+      "name": "Marvin The Martian",
+      "quote": "WBNB",
+      "tokenAddress": "0x4682b48f5a6b2fb94d3c43bdd90da998fae17777",
+      "poolAddress": "0x49fc6ecdd18c05948656e2bd3cb6f87714911485",
+      "dex": "pancakeswap_v2",
+      "createdAt": "2026-11-16T04:54:58Z",
+      "ageMinutes": 11.4,
+      "priceUsd": 6.9151338e-05,
+      "fdvUsd": 69151.34,
+      "reserveUsd": 14258.17,
+      "volume": {
+        "m5": 5466.21,
+        "h1": 20731.7,
+        "h6": 20731.7,
+        "h24": 20731.7
+      },
+      "change": {
+        "m5": 32.78,
+        "h1": 257.5,
+        "h24": 257.5
+      },
+      "txns": {
+        "m5Buys": 22,
+        "m5Sells": 24,
+        "h1Buys": 84,
+        "h1Sells": 102
+      },
+      "hourShare": 1.0,
+      "fiveMinutePace": 0.0,
+      "reasons": [
+        "this hour is a large share of the day's volume",
+        "price moved hard on real hourly volume",
+        "new pair already trading size"
+      ],
+      "source": "geckoterminal",
+      "links": {
+        "dexscreener": "https://dexscreener.com/bsc/0x4682b48f5a6b2fb94d3c43bdd90da998fae17777",
+        "geckoterminal": "https://www.geckoterminal.com/bsc/pools/0x49fc6ecdd18c05948656e2bd3cb6f87714911485"
+      }
+    }
+  ],
+  "newPairs": [
+    {
+      "chain": "base",
+      "symbol": "GODF",
+      "name": "GODF \ud83d\udd25",
+      "quote": "WETH",
+      "tokenAddress": "0x4093fea9c45748c0bcff35f29ca5c467be61fa97",
+      "poolAddress": "0xb01e4cce62669d47cab6d6b7c2443d9c34a6b8bea652ff3d726d1449c716d9b3",
+      "dex": "uniswap-v4-base",
+      "createdAt": "2026-11-16T04:46:09Z",
+      "ageMinutes": 20.2,
+      "priceUsd": 0.028196815,
+      "fdvUsd": 281968150.7,
+      "reserveUsd": 42293827.85,
+      "volume": {
+        "m5": 127.11,
+        "h1": 136942.58,
+        "h6": 136942.58,
+        "h24": 136942.58
+      },
+      "change": {
+        "m5": -0.26,
+        "h1": 2585933.39,
+        "h24": 2585933.39
+      },
+      "txns": {
+        "m5Buys": 5,
+        "m5Sells": 3,
+        "h1Buys": 27,
+        "h1Sells": 15
+      },
+      "hourShare": 1.0,
+      "fiveMinutePace": 0.01,
+      "source": "geckoterminal",
+      "links": {
+        "dexscreener": "https://dexscreener.com/base/0x4093fea9c45748c0bcff35f29ca5c467be61fa97",
+        "geckoterminal": "https://www.geckoterminal.com/base/pools/0xb01e4cce62669d47cab6d6b7c2443d9c34a6b8bea652ff3d726d1449c716d9b3"
+      }
+    },
+    {
+      "chain": "solana",
+      "symbol": "Anthropig",
+      "name": "Anthropig",
+      "quote": "SOL",
+      "tokenAddress": "2NUaS6Gfrm5rBuPBn7svHka8t33SrSkpXGQiUvZLpump",
+      "poolAddress": "4rm7LQ7uDXMmMGV88QJK1ck22xUq3cxg9QqiyMBhKsnq",
+      "dex": "pumpswap",
+      "createdAt": "2026-11-15T17:47:09Z",
+      "ageMinutes": 679.2,
+      "priceUsd": 0.001101,
+      "fdvUsd": 1090838.0,
+      "marketCapUsd": 1090838.0,
+      "reserveUsd": 76408.15,
+      "volume": {
+        "m5": 3737.04,
+        "h1": 69614.46,
+        "h6": 398198.33,
+        "h24": 1017621.75
+      },
+      "change": {
+        "m5": -6.52,
+        "h1": -0.7,
+        "h24": 3252.0
+      },
+      "txns": {
+        "m5Buys": 68,
+        "m5Sells": 67,
+        "h1Buys": 1002,
+        "h1Sells": 878
+      },
+      "hourShare": 0.068,
+      "fiveMinutePace": 0.64,
+      "reasons": [
+        "new pair already trading size"
+      ],
+      "source": "dexscreener",
+      "boostAmount": 100,
+      "links": {
+        "dexscreener": "https://dexscreener.com/solana/2NUaS6Gfrm5rBuPBn7svHka8t33SrSkpXGQiUvZLpump",
+        "geckoterminal": "https://www.geckoterminal.com/solana/pools/4rm7LQ7uDXMmMGV88QJK1ck22xUq3cxg9QqiyMBhKsnq"
+      }
+    },
+    {
+      "chain": "base",
+      "symbol": "RST",
+      "name": "Resolut Technologies",
+      "quote": "WETH",
+      "tokenAddress": "0x291fdf7b4cd42841bbe41d3c7f7f92c5658c72c0",
+      "poolAddress": "0x2f7d481ff40c8f634c198fe7a154cac294fef3b7c5ff1c3ac21c4327b70fe6dc",
+      "dex": "uniswap-v4-base",
+      "createdAt": "2026-11-16T04:45:37Z",
+      "ageMinutes": 20.7,
+      "priceUsd": 0.0024914847,
+      "fdvUsd": 24914847.24,
+      "reserveUsd": 3737563.3,
+      "volume": {
+        "m5": 144.52,
+        "h1": 62979.55,
+        "h6": 62979.55,
+        "h24": 62979.55
+      },
+      "change": {
+        "m5": -0.26,
+        "h1": 228381.83,
+        "h24": 228381.83
+      },
+      "txns": {
+        "m5Buys": 4,
+        "m5Sells": 4,
+        "h1Buys": 26,
+        "h1Sells": 18
+      },
+      "hourShare": 1.0,
+      "fiveMinutePace": 0.03,
+      "reasons": [
+        "this hour is a large share of the day's volume",
+        "price moved hard on real hourly volume",
+        "new pair already trading size"
+      ],
+      "source": "geckoterminal",
+      "links": {
+        "dexscreener": "https://dexscreener.com/base/0x291fdf7b4cd42841bbe41d3c7f7f92c5658c72c0",
+        "geckoterminal": "https://www.geckoterminal.com/base/pools/0x2f7d481ff40c8f634c198fe7a154cac294fef3b7c5ff1c3ac21c4327b70fe6dc"
+      }
+    },
+    {
+      "chain": "base",
+      "symbol": "SOSF",
+      "name": "SOSF \ud83d\udd25",
+      "quote": "WETH",
+      "tokenAddress": "0x0599a1e885439bbdd1429587c71f59dbbfe283bd",
+      "poolAddress": "0xa4e3736ddb64128314686a9ab23d429947cc869895093056afeef3b763d52d9e",
+      "dex": "uniswap-v4-base",
+      "createdAt": "2026-11-16T04:44:28Z",
+      "ageMinutes": 21.9,
+      "priceUsd": 0.0047818373,
+      "fdvUsd": 47818373.18,
+      "reserveUsd": 7173022.65,
+      "volume": {
+        "m5": 142.47,
+        "h1": 37734.01,
+        "h6": 37734.01,
+        "h24": 37734.01
+      },
+      "change": {
+        "m5": -0.26,
+        "h1": -0.26,
+        "h24": -0.26
+      },
+      "txns": {
+        "m5Buys": 5,
+        "m5Sells": 3,
+        "h1Buys": 28,
+        "h1Sells": 18
+      },
+      "hourShare": 1.0,
+      "fiveMinutePace": 0.05,
+      "reasons": [
+        "this hour is a large share of the day's volume",
+        "new pair already trading size"
+      ],
+      "source": "geckoterminal",
+      "links": {
+        "dexscreener": "https://dexscreener.com/base/0x0599a1e885439bbdd1429587c71f59dbbfe283bd",
+        "geckoterminal": "https://www.geckoterminal.com/base/pools/0xa4e3736ddb64128314686a9ab23d429947cc869895093056afeef3b763d52d9e"
+      }
+    },
+    {
+      "chain": "base",
+      "symbol": "AO\u200aDT",
+      "name": "AODT \ud83d\udd25",
+      "quote": "WETH",
+      "tokenAddress": "0x0b917022caa17eeec6fae9dd06cbe8efe390c126",
+      "poolAddress": "0xdc7c6b6fb62768a49033c6ca54b1a990545b3cef73594f7e36b036c7b9d97b18",
+      "dex": "uniswap-v4-base",
+      "createdAt": "2026-11-16T04:45:04Z",
+      "ageMinutes": 21.3,
+      "priceUsd": 0.0047825834,
+      "fdvUsd": 47825834.27,
+      "reserveUsd": 7174141.21,
+      "volume": {
+        "m5": 144.79,
+        "h1": 28454.85,
+        "h6": 28454.85,
+        "h24": 28454.85
+      },
+      "change": {
+        "m5": -0.27,
+        "h1": 438554.83,
+        "h24": 438554.83
+      },
+      "txns": {
+        "m5Buys": 6,
+        "m5Sells": 3,
+        "h1Buys": 29,
+        "h1Sells": 18
+      },
+      "hourShare": 1.0,
+      "fiveMinutePace": 0.06,
+      "reasons": [
+        "this hour is a large share of the day's volume",
+        "price moved hard on real hourly volume",
+        "new pair already trading size"
+      ],
+      "source": "geckoterminal",
+      "links": {
+        "dexscreener": "https://dexscreener.com/base/0x0b917022caa17eeec6fae9dd06cbe8efe390c126",
+        "geckoterminal": "https://www.geckoterminal.com/base/pools/0xdc7c6b6fb62768a49033c6ca54b1a990545b3cef73594f7e36b036c7b9d97b18"
+      }
+    },
+    {
+      "chain": "bsc",
+      "symbol": "Marvin",
+      "name": "Marvin The Martian",
+      "quote": "WBNB",
+      "tokenAddress": "0x4682b48f5a6b2fb94d3c43bdd90da998fae17777",
+      "poolAddress": "0x49fc6ecdd18c05948656e2bd3cb6f87714911485",
+      "dex": "pancakeswap_v2",
+      "createdAt": "2026-11-16T04:54:58Z",
+      "ageMinutes": 11.4,
+      "priceUsd": 6.9151338e-05,
+      "fdvUsd": 69151.34,
+      "reserveUsd": 14258.17,
+      "volume": {
+        "m5": 5466.21,
+        "h1": 20731.7,
+        "h6": 20731.7,
+        "h24": 20731.7
+      },
+      "change": {
+        "m5": 32.78,
+        "h1": 257.5,
+        "h24": 257.5
+      },
+      "txns": {
+        "m5Buys": 22,
+        "m5Sells": 24,
+        "h1Buys": 84,
+        "h1Sells": 102
+      },
+      "hourShare": 1.0,
+      "fiveMinutePace": 0.0,
+      "reasons": [
+        "this hour is a large share of the day's volume",
+        "price moved hard on real hourly volume",
+        "new pair already trading size"
+      ],
+      "source": "geckoterminal",
+      "links": {
+        "dexscreener": "https://dexscreener.com/bsc/0x4682b48f5a6b2fb94d3c43bdd90da998fae17777",
+        "geckoterminal": "https://www.geckoterminal.com/bsc/pools/0x49fc6ecdd18c05948656e2bd3cb6f87714911485"
+      }
+    },
+    {
+      "chain": "bsc",
+      "symbol": "Marvin",
+      "name": "Marvin The Martian",
+      "quote": "WBNB",
+      "tokenAddress": "0x26b01ef97d5b326b840488572698b60e36a17777",
+      "poolAddress": "0x46ee3e47c984bd0c3033fa43343c11c344729afe",
+      "dex": "pancakeswap_v2",
+      "createdAt": "2026-11-16T04:59:14Z",
+      "ageMinutes": 7.1,
+      "priceUsd": 4.0511301e-05,
+      "fdvUsd": 40511.3,
+      "reserveUsd": 10988.66,
+      "volume": {
+        "m5": 8836.57,
+        "h1": 10092.94,
+        "h6": 10092.94,
+        "h24": 10092.94
+      },
+      "change": {
+        "m5": 67.21,
+        "h1": 122.08,
+        "h24": 122.08
+      },
+      "txns": {
+        "m5Buys": 61,
+        "m5Sells": 66,
+        "h1Buys": 75,
+        "h1Sells": 78
+      },
+      "hourShare": 1.0,
+      "fiveMinutePace": 0.0,
+      "reasons": [
+        "new pair already trading size"
+      ],
+      "source": "geckoterminal",
+      "links": {
+        "dexscreener": "https://dexscreener.com/bsc/0x26b01ef97d5b326b840488572698b60e36a17777",
+        "geckoterminal": "https://www.geckoterminal.com/bsc/pools/0x46ee3e47c984bd0c3033fa43343c11c344729afe"
+      }
+    },
+    {
+      "chain": "bsc",
+      "symbol": "Marvin",
+      "name": "Marvin The Martian",
+      "quote": "WBNB",
+      "tokenAddress": "0xdab4592de17c481b54e178c1cb40afd629b57777",
+      "poolAddress": "0x49cbcb110a9fd1f46372f979937e8bd10824c175",
+      "dex": "pancakeswap_v2",
+      "createdAt": "2026-11-16T05:02:22Z",
+      "ageMinutes": 4.0,
+      "priceUsd": 6.9005868e-05,
+      "fdvUsd": 69005.87,
+      "reserveUsd": 24220.27,
+      "volume": {
+        "m5": 7123.97,
+        "h1": 7123.97,
+        "h6": 7123.97,
+        "h24": 7123.97
+      },
+      "change": {
+        "m5": 32.6,
+        "h1": 32.6,
+        "h24": 32.6
+      },
+      "txns": {
+        "m5Buys": 26,
+        "m5Sells": 30,
+        "h1Buys": 26,
+        "h1Sells": 30
+      },
+      "hourShare": 1.0,
+      "fiveMinutePace": 0.0,
+      "reasons": [
+        "new pair already trading size"
+      ],
+      "source": "geckoterminal",
+      "links": {
+        "dexscreener": "https://dexscreener.com/bsc/0xdab4592de17c481b54e178c1cb40afd629b57777",
+        "geckoterminal": "https://www.geckoterminal.com/bsc/pools/0x49cbcb110a9fd1f46372f979937e8bd10824c175"
+      }
+    },
+    {
+      "chain": "solana",
+      "symbol": "BUTTHOLE",
+      "name": "Butthole",
+      "quote": "ANTHROPIC",
+      "tokenAddress": "4B8CdHPZ8ng1CtMP2Jk2W8wGAwJ5nJnap1deVsz2pump",
+      "poolAddress": "GEc5NcEhDr85aUvjESEvz22jWj6kkMQsgtd6aNJPdDGf",
+      "dex": "pumpswap",
+      "createdAt": "2026-11-15T15:35:40Z",
+      "ageMinutes": 810.7,
+      "priceUsd": 0.0004378,
+      "fdvUsd": 423410.0,
+      "marketCapUsd": 423410.0,
+      "reserveUsd": 176114.69,
+      "volume": {
+        "m5": 655.95,
+        "h1": 7008.2,
+        "h6": 146128.84,
+        "h24": 561035.55
+      },
+      "change": {
+        "m5": -4.04,
+        "h1": -7.16,
+        "h24": -15.38
+      },
+      "txns": {
+        "m5Buys": 3,
+        "m5Sells": 6,
+        "h1Buys": 47,
+        "h1Sells": 41
+      },
+      "hourShare": 0.012,
+      "fiveMinutePace": 1.12,
+      "reasons": [
+        "new pair already trading size"
+      ],
+      "source": "dexscreener",
+      "boostAmount": 40,
+      "links": {
+        "dexscreener": "https://dexscreener.com/solana/4B8CdHPZ8ng1CtMP2Jk2W8wGAwJ5nJnap1deVsz2pump",
+        "geckoterminal": "https://www.geckoterminal.com/solana/pools/GEc5NcEhDr85aUvjESEvz22jWj6kkMQsgtd6aNJPdDGf"
+      }
+    },
+    {
+      "chain": "base",
+      "symbol": "AO\u200aD\u200aF",
+      "name": "AODF",
+      "quote": "WETH",
+      "tokenAddress": "0x0c0d20663b686d6c98eccd76aa8d2ea07b88e1dd",
+      "poolAddress": "0x8dc2e6b0217d92e50b832622d3be92329a5064acaa791fa7111b3db235deb1d4",
+      "dex": "uniswap-v4-base",
+      "createdAt": "2026-11-16T04:47:16Z",
+      "ageMinutes": 19.1,
+      "priceUsd": 0.032617421,
+      "fdvUsd": 326174213.2,
+      "reserveUsd": 48926675.11,
+      "volume": {
+        "m5": 133.03,
+        "h1": 6569.53,
+        "h6": 6569.53,
+        "h24": 6569.53
+      },
+      "change": {
+        "m5": -0.28,
+        "h1": 2991363.41,
+        "h24": 2991363.41
+      },
+      "txns": {
+        "m5Buys": 6,
+        "m5Sells": 3,
+        "h1Buys": 23,
+        "h1Sells": 13
+      },
+      "hourShare": 1.0,
+      "fiveMinutePace": 0.0,
+      "source": "geckoterminal",
+      "links": {
+        "dexscreener": "https://dexscreener.com/base/0x0c0d20663b686d6c98eccd76aa8d2ea07b88e1dd",
+        "geckoterminal": "https://www.geckoterminal.com/base/pools/0x8dc2e6b0217d92e50b832622d3be92329a5064acaa791fa7111b3db235deb1d4"
+      }
+    },
+    {
+      "chain": "base",
+      "symbol": "AOB",
+      "name": "AO3Back",
+      "quote": "WETH",
+      "tokenAddress": "0x519ba920275f8e58751223bae09447ad91d79bfb",
+      "poolAddress": "0x1b46578a2ae55aac04b18ca0da22096d47da533abc0a0bca4211c6550258bb93",
+      "dex": "uniswap-v4-base",
+      "createdAt": "2026-11-16T04:47:45Z",
+      "ageMinutes": 18.6,
+      "priceUsd": 9.7449614e-08,
+      "fdvUsd": 9744.96,
+      "reserveUsd": 4840.71,
+      "volume": {
+        "m5": 0.0,
+        "h1": 4081.49,
+        "h6": 4081.49,
+        "h24": 4081.49
+      },
+      "change": {
+        "m5": 0.0,
+        "h1": 124.48,
+        "h24": 124.48
+      },
+      "txns": {
+        "m5Buys": 0,
+        "m5Sells": 0,
+        "h1Buys": 10,
+        "h1Sells": 1
+      },
+      "hourShare": 1.0,
+      "fiveMinutePace": 0.0,
+      "reasons": [
+        "new pair already trading size"
+      ],
+      "source": "geckoterminal",
+      "links": {
+        "dexscreener": "https://dexscreener.com/base/0x519ba920275f8e58751223bae09447ad91d79bfb",
+        "geckoterminal": "https://www.geckoterminal.com/base/pools/0x1b46578a2ae55aac04b18ca0da22096d47da533abc0a0bca4211c6550258bb93"
+      }
+    },
+    {
+      "chain": "base",
+      "symbol": "NOTF",
+      "name": "NOTF",
+      "quote": "WETH",
+      "tokenAddress": "0x3774d89b8c58165e2e9fc62a24048b72081376e5",
+      "poolAddress": "0xfe9a9a535c49b533634cc4e2ec41ebb301df7acc3fa260fe6285116a49499b49",
+      "dex": "uniswap-v4-base",
+      "createdAt": "2026-11-16T04:46:41Z",
+      "ageMinutes": 19.7,
+      "priceUsd": 0.0046687676,
+      "fdvUsd": 46687675.55,
+      "reserveUsd": 7003694.98,
+      "volume": {
+        "m5": 142.28,
+        "h1": 3849.01,
+        "h6": 3849.01,
+        "h24": 3849.01
+      },
+      "change": {
+        "m5": -0.26,
+        "h1": 428089.81,
+        "h24": 428089.81
+      },
+      "txns": {
+        "m5Buys": 5,
+        "m5Sells": 3,
+        "h1Buys": 24,
+        "h1Sells": 13
+      },
+      "hourShare": 1.0,
+      "fiveMinutePace": 0.0,
+      "reasons": [
+        "new pair already trading size"
+      ],
+      "source": "geckoterminal",
+      "links": {
+        "dexscreener": "https://dexscreener.com/base/0x3774d89b8c58165e2e9fc62a24048b72081376e5",
+        "geckoterminal": "https://www.geckoterminal.com/base/pools/0xfe9a9a535c49b533634cc4e2ec41ebb301df7acc3fa260fe6285116a49499b49"
+      }
+    },
+    {
+      "chain": "base",
+      "symbol": "DOTF",
+      "name": "Digital Oil Trust Fund",
+      "quote": "WETH",
+      "tokenAddress": "0x3c2387426243e1272c84a388f26c85b5e2ffbe32",
+      "poolAddress": "0x41ad66128466d2b5f1ec686afcfac018bab90e263c7b607504fe2f23d489ce77",
+      "dex": "uniswap-v4-base",
+      "createdAt": "2026-11-16T04:48:59Z",
+      "ageMinutes": 17.4,
+      "priceUsd": 0.0028890005,
+      "fdvUsd": 28890005.18,
+      "reserveUsd": 4333605.09,
+      "volume": {
+        "m5": 131.65,
+        "h1": 3205.19,
+        "h6": 3205.19,
+        "h24": 3205.19
+      },
+      "change": {
+        "m5": -0.26,
+        "h1": 530002.54,
+        "h24": 530002.54
+      },
+      "txns": {
+        "m5Buys": 5,
+        "m5Sells": 3,
+        "h1Buys": 20,
+        "h1Sells": 11
+      },
+      "hourShare": 1.0,
+      "fiveMinutePace": 0.0,
+      "reasons": [
+        "new pair already trading size"
+      ],
+      "source": "geckoterminal",
+      "links": {
+        "dexscreener": "https://dexscreener.com/base/0x3c2387426243e1272c84a388f26c85b5e2ffbe32",
+        "geckoterminal": "https://www.geckoterminal.com/base/pools/0x41ad66128466d2b5f1ec686afcfac018bab90e263c7b607504fe2f23d489ce77"
+      }
+    },
+    {
+      "chain": "bsc",
+      "symbol": "GM",
+      "name": "GREEN MORNING",
+      "quote": "WBNB",
+      "tokenAddress": "0x86524de4597092d2e3fba8dc81844ed536b5d3c8",
+      "poolAddress": "0x0bc2017b7c9743167823f8295efe65f1e98bc5b8",
+      "dex": "pancakeswap_v2",
+      "createdAt": "2026-11-16T04:59:43Z",
+      "ageMinutes": 6.6,
+      "priceUsd": 9.8179975e-06,
+      "fdvUsd": 76580.38,
+      "reserveUsd": 147469.32,
+      "volume": {
+        "m5": 3051.16,
+        "h1": 3051.16,
+        "h6": 3051.16,
+        "h24": 3051.16
+      },
+      "change": {
+        "m5": 6.84,
+        "h1": 6.84,
+        "h24": 6.84
+      },
+      "txns": {
+        "m5Buys": 5,
+        "m5Sells": 0,
+        "h1Buys": 5,
+        "h1Sells": 0
+      },
+      "hourShare": 1.0,
+      "fiveMinutePace": 0.0,
+      "reasons": [
+        "new pair already trading size"
+      ],
+      "source": "geckoterminal",
+      "links": {
+        "dexscreener": "https://dexscreener.com/bsc/0x86524de4597092d2e3fba8dc81844ed536b5d3c8",
+        "geckoterminal": "https://www.geckoterminal.com/bsc/pools/0x0bc2017b7c9743167823f8295efe65f1e98bc5b8"
+      }
+    },
+    {
+      "chain": "solana",
+      "symbol": "Inuployed",
+      "name": "Inuployed",
+      "quote": "SOL",
+      "tokenAddress": "8KqZD7dy2rzPPQRYadGeHQufRUk2FuVv3tb9TAgxpump",
+      "poolAddress": "HkYND9Zqadut6sfRiLz7WFojdY7DYWSQHsETsTt73mjm",
+      "dex": "pump-fun",
+      "createdAt": "2026-11-16T05:04:46Z",
+      "ageMinutes": 1.6,
+      "priceUsd": 8.0015186e-06,
+      "fdvUsd": 5657.54,
+      "reserveUsd": 3487.6,
+      "volume": {
+        "m5": 2934.64,
+        "h1": 2934.64,
+        "h6": 2934.64,
+        "h24": 2934.64
+      },
+      "change": {
+        "m5": 96.71,
+        "h1": 96.71,
+        "h24": 96.71
+      },
+      "txns": {
+        "m5Buys": 52,
+        "m5Sells": 17,
+        "h1Buys": 52,
+        "h1Sells": 17
+      },
+      "hourShare": 1.0,
+      "fiveMinutePace": 0.0,
+      "reasons": [
+        "new pair already trading size"
+      ],
+      "source": "geckoterminal",
+      "links": {
+        "dexscreener": "https://dexscreener.com/solana/8KqZD7dy2rzPPQRYadGeHQufRUk2FuVv3tb9TAgxpump",
+        "geckoterminal": "https://www.geckoterminal.com/solana/pools/HkYND9Zqadut6sfRiLz7WFojdY7DYWSQHsETsTt73mjm"
+      }
+    },
+    {
+      "chain": "solana",
+      "symbol": "GTAVI",
+      "name": "Official Grand Theft Auto VI",
+      "quote": "TTWO",
+      "tokenAddress": "HQjXLbFPkpJP1BmF55DgXj9F6614FURvGLKuyCZQpump",
+      "poolAddress": "J3BYGU9dTkVZ28PXfKbpp8R6ienTEWcYYnPbyDYo2xCW",
+      "dex": "pumpswap",
+      "createdAt": "2026-11-15T21:56:54Z",
+      "ageMinutes": 429.4,
+      "priceUsd": 2.147e-05,
+      "fdvUsd": 20954.0,
+      "marketCapUsd": 20954.0,
+      "reserveUsd": 11867.91,
+      "volume": {
+        "m5": 276.8,
+        "h1": 2098.12,
+        "h6": 165060.69,
+        "h24": 988619.11
+      },
+      "change": {
+        "m5": -8.4,
+        "h1": -22.3,
+        "h24": -53.09
+      },
+      "txns": {
+        "m5Buys": 1,
+        "m5Sells": 6,
+        "h1Buys": 23,
+        "h1Sells": 60
+      },
+      "hourShare": 0.002,
+      "fiveMinutePace": 1.58,
+      "reasons": [
+        "new pair already trading size"
+      ],
+      "source": "dexscreener",
+      "boostAmount": 10,
+      "links": {
+        "dexscreener": "https://dexscreener.com/solana/HQjXLbFPkpJP1BmF55DgXj9F6614FURvGLKuyCZQpump",
+        "geckoterminal": "https://www.geckoterminal.com/solana/pools/J3BYGU9dTkVZ28PXfKbpp8R6ienTEWcYYnPbyDYo2xCW"
+      }
+    },
+    {
+      "chain": "solana",
+      "symbol": "FiveM",
+      "name": "GRAND THEFT CRYPTO",
+      "quote": "SOL",
+      "tokenAddress": "8dbLrW3ZTTu4qeAKYYBjuuSSAPhMvABwUes3eWoXpump",
+      "poolAddress": "DPBu18FhAg2wtb94TqnKA4DS9ExVFGgy5p7iZqvztwCp",
+      "dex": "pumpswap",
+      "createdAt": "2026-11-15T21:33:38Z",
+      "ageMinutes": 452.7,
+      "priceUsd": 1.925e-05,
+      "fdvUsd": 18856.0,
+      "marketCapUsd": 18856.0,
+      "reserveUsd": 8990.75,
+      "volume": {
+        "m5": 43.93,
+        "h1": 986.03,
+        "h6": 59727.08,
+        "h24": 482952.49
+      },
+      "change": {
+        "m5": -0.11,
+        "h1": -2.1,
+        "h24": -35.42
+      },
+      "txns": {
+        "m5Buys": 6,
+        "m5Sells": 2,
+        "h1Buys": 26,
+        "h1Sells": 44
+      },
+      "hourShare": 0.002,
+      "fiveMinutePace": 0.53,
+      "reasons": [
+        "new pair already trading size"
+      ],
+      "source": "dexscreener",
+      "boostAmount": 10,
+      "links": {
+        "dexscreener": "https://dexscreener.com/solana/8dbLrW3ZTTu4qeAKYYBjuuSSAPhMvABwUes3eWoXpump",
+        "geckoterminal": "https://www.geckoterminal.com/solana/pools/DPBu18FhAg2wtb94TqnKA4DS9ExVFGgy5p7iZqvztwCp"
+      }
+    },
+    {
+      "chain": "base",
+      "symbol": "Uranus",
+      "name": "Uranus",
+      "quote": "ETH",
+      "tokenAddress": "0xaa0cafb4c337240fb40e7d49074aff8748dd7b0c",
+      "poolAddress": "0xaa8bf7659c9de413085cd46175bf53d022bf541eb4a32c436584241db8a73fd8",
+      "dex": "uniswap-v4-base",
+      "createdAt": "2026-11-16T05:01:53Z",
+      "ageMinutes": 4.5,
+      "priceUsd": 1.4407004e-06,
+      "fdvUsd": 1440.7,
+      "volume": {
+        "m5": 965.85,
+        "h1": 965.85,
+        "h6": 965.85,
+        "h24": 965.85
+      },
+      "change": {
+        "m5": 55.81,
+        "h1": 55.81,
+        "h24": 55.81
+      },
+      "txns": {
+        "m5Buys": 4,
+        "m5Sells": 1,
+        "h1Buys": 4,
+        "h1Sells": 1
+      },
+      "hourShare": 1.0,
+      "fiveMinutePace": 0.0,
+      "reasons": [
+        "new pair already trading size"
+      ],
+      "source": "geckoterminal",
+      "links": {
+        "dexscreener": "https://dexscreener.com/base/0xaa0cafb4c337240fb40e7d49074aff8748dd7b0c",
+        "geckoterminal": "https://www.geckoterminal.com/base/pools/0xaa8bf7659c9de413085cd46175bf53d022bf541eb4a32c436584241db8a73fd8"
+      }
+    },
+    {
+      "chain": "solana",
+      "symbol": "GTAVI",
+      "name": "GTA VI",
+      "quote": "SOL",
+      "tokenAddress": "2anhKq7srLuvKDi63EyAPYyK71vSGeyTrVxTJRN4fc8N",
+      "poolAddress": "DaQf915PiasWKagPN8ZjvyvU5ZVzras2Bq2bM3aMaBwz",
+      "dex": "pumpswap",
+      "createdAt": "2026-11-15T15:47:38Z",
+      "ageMinutes": 798.7,
+      "priceUsd": 1.542e-05,
+      "fdvUsd": 14811.0,
+      "marketCapUsd": 14811.0,
+      "reserveUsd": 7648.54,
+      "volume": {
+        "m5": 0.0,
+        "h1": 730.77,
+        "h6": 4608.91,
+        "h24": 136687.98
+      },
+      "change": {
+        "m5": 0.0,
+        "h1": -19.83,
+        "h24": -46.42
+      },
+      "txns": {
+        "m5Buys": 0,
+        "m5Sells": 0,
+        "h1Buys": 17,
+        "h1Sells": 5
+      },
+      "hourShare": 0.005,
+      "fiveMinutePace": 0.0,
+      "reasons": [
+        "new pair already trading size"
+      ],
+      "source": "dexscreener",
+      "boostAmount": 10,
+      "links": {
+        "dexscreener": "https://dexscreener.com/solana/2anhKq7srLuvKDi63EyAPYyK71vSGeyTrVxTJRN4fc8N",
+        "geckoterminal": "https://www.geckoterminal.com/solana/pools/DaQf915PiasWKagPN8ZjvyvU5ZVzras2Bq2bM3aMaBwz"
+      }
+    },
+    {
+      "chain": "solana",
+      "symbol": "NINU",
+      "name": "ni hao inu",
+      "quote": "SOL",
+      "tokenAddress": "7jGdREhmTaGj6EVkrhmiadSSiNSvE5w6qfGccud5pump",
+      "poolAddress": "89QbHwWcMLgbJK19AnFtC8E6AUT4mrLxeFyLi4HfiThk",
+      "dex": "pumpswap",
+      "createdAt": "2026-11-15T18:10:45Z",
+      "ageMinutes": 655.6,
+      "priceUsd": 5.084e-05,
+      "fdvUsd": 49939.0,
+      "marketCapUsd": 49939.0,
+      "reserveUsd": 15523.41,
+      "volume": {
+        "m5": 310.26,
+        "h1": 657.5,
+        "h6": 13561.36,
+        "h24": 447379.38
+      },
+      "change": {
+        "m5": 3.36,
+        "h1": 2.64,
+        "h24": 0.25
+      },
+      "txns": {
+        "m5Buys": 4,
+        "m5Sells": 4,
+        "h1Buys": 22,
+        "h1Sells": 28
+      },
+      "hourShare": 0.001,
+      "fiveMinutePace": 5.66,
+      "reasons": [
+        "new pair already trading size"
+      ],
+      "source": "dexscreener",
+      "boostAmount": 100,
+      "links": {
+        "dexscreener": "https://dexscreener.com/solana/7jGdREhmTaGj6EVkrhmiadSSiNSvE5w6qfGccud5pump",
+        "geckoterminal": "https://www.geckoterminal.com/solana/pools/89QbHwWcMLgbJK19AnFtC8E6AUT4mrLxeFyLi4HfiThk"
+      }
+    },
+    {
+      "chain": "solana",
+      "symbol": "BEAR",
+      "name": "BEAR",
+      "quote": "USDC",
+      "tokenAddress": "3GN46GsmAUQSpHXtY3oasJFYAbp9RBzVoR7X8ar1pump",
+      "poolAddress": "4DEtjTot1rhe24ikc6XynjXLu9CZ7EoMGkDBgZiLky6U",
+      "dex": "pumpswap",
+      "createdAt": "2026-11-15T17:26:25Z",
+      "ageMinutes": 699.9,
+      "priceUsd": 4.537e-06,
+      "fdvUsd": 4340.0,
+      "marketCapUsd": 4340.0,
+      "reserveUsd": 4352.18,
+      "volume": {
+        "m5": 0.0,
+        "h1": 212.48,
+        "h6": 572.9,
+        "h24": 274826.02
+      },
+      "change": {
+        "m5": 0.0,
+        "h1": -2.6,
+        "h24": -92.36
+      },
+      "txns": {
+        "m5Buys": 0,
+        "m5Sells": 0,
+        "h1Buys": 2,
+        "h1Sells": 7
+      },
+      "hourShare": 0.001,
+      "fiveMinutePace": 0.0,
+      "reasons": [
+        "new pair already trading size"
+      ],
+      "source": "dexscreener",
+      "boostAmount": 500,
+      "links": {
+        "dexscreener": "https://dexscreener.com/solana/3GN46GsmAUQSpHXtY3oasJFYAbp9RBzVoR7X8ar1pump",
+        "geckoterminal": "https://www.geckoterminal.com/solana/pools/4DEtjTot1rhe24ikc6XynjXLu9CZ7EoMGkDBgZiLky6U"
+      }
+    },
+    {
+      "chain": "solana",
+      "symbol": "GTA6CRAB",
+      "name": "Pinchie The Crab",
+      "quote": "SOL",
+      "tokenAddress": "BNWoerirvCxAU3diZ4DRJbKa2Y1zo17eyPPBwCK1pump",
+      "poolAddress": "85Q718k88S9u5aKTEuSuy6DLLutk117VXwGVUEEXoUC2",
+      "dex": "pumpswap",
+      "createdAt": "2026-11-15T21:05:17Z",
+      "ageMinutes": 481.1,
+      "priceUsd": 4.275e-05,
+      "fdvUsd": 39426.0,
+      "marketCapUsd": 39426.0,
+      "reserveUsd": 13426.34,
+      "volume": {
+        "m5": 54.56,
+        "h1": 211.39,
+        "h6": 2438.93,
+        "h24": 32859.33
+      },
+      "change": {
+        "m5": 1.7,
+        "h1": -2.54,
+        "h24": 41.49
+      },
+      "txns": {
+        "m5Buys": 1,
+        "m5Sells": 1,
+        "h1Buys": 1,
+        "h1Sells": 9
+      },
+      "hourShare": 0.006,
+      "fiveMinutePace": 3.1,
+      "reasons": [
+        "new pair already trading size"
+      ],
+      "source": "dexscreener",
+      "boostAmount": 40,
+      "links": {
+        "dexscreener": "https://dexscreener.com/solana/BNWoerirvCxAU3diZ4DRJbKa2Y1zo17eyPPBwCK1pump",
+        "geckoterminal": "https://www.geckoterminal.com/solana/pools/85Q718k88S9u5aKTEuSuy6DLLutk117VXwGVUEEXoUC2"
+      }
+    },
+    {
+      "chain": "solana",
+      "symbol": "NIBULL",
+      "name": "Ni hao Bull",
+      "quote": "SOL",
+      "tokenAddress": "9Em8HMyBDWfii3ZNEjWvmg9S4HoQXEp5VHQfQartpump",
+      "poolAddress": "A19d2sBLwdvKieQiyYapGnMXDAXj1142pU6prfcfP6Tk",
+      "dex": "pumpswap",
+      "createdAt": "2026-11-15T18:15:25Z",
+      "ageMinutes": 650.9,
+      "priceUsd": 2.158e-06,
+      "fdvUsd": 2101.0,
+      "marketCapUsd": 2101.0,
+      "reserveUsd": 2133.6,
+      "volume": {
+        "m5": 0.0,
+        "h1": 10.9,
+        "h6": 226.81,
+        "h24": 219047.29
+      },
+      "change": {
+        "m5": 0.0,
+        "h1": -0.45,
+        "h24": -95.26
+      },
+      "txns": {
+        "m5Buys": 0,
+        "m5Sells": 0,
+        "h1Buys": 1,
+        "h1Sells": 0
+      },
+      "hourShare": 0.0,
+      "fiveMinutePace": 0.0,
+      "reasons": [
+        "new pair already trading size"
+      ],
+      "source": "dexscreener",
+      "boostAmount": 30,
+      "links": {
+        "dexscreener": "https://dexscreener.com/solana/9Em8HMyBDWfii3ZNEjWvmg9S4HoQXEp5VHQfQartpump",
+        "geckoterminal": "https://www.geckoterminal.com/solana/pools/A19d2sBLwdvKieQiyYapGnMXDAXj1142pU6prfcfP6Tk"
+      }
+    }
+  ],
+  "justOpened": [
+    {
+      "chain": "base",
+      "symbol": "GODF",
+      "name": "GODF \ud83d\udd25",
+      "quote": "WETH",
+      "tokenAddress": "0x4093fea9c45748c0bcff35f29ca5c467be61fa97",
+      "poolAddress": "0xb01e4cce62669d47cab6d6b7c2443d9c34a6b8bea652ff3d726d1449c716d9b3",
+      "dex": "uniswap-v4-base",
+      "createdAt": "2026-11-16T04:46:09Z",
+      "ageMinutes": 20.2,
+      "priceUsd": 0.028196815,
+      "fdvUsd": 281968150.7,
+      "reserveUsd": 42293827.85,
+      "volume": {
+        "m5": 127.11,
+        "h1": 136942.58,
+        "h6": 136942.58,
+        "h24": 136942.58
+      },
+      "change": {
+        "m5": -0.26,
+        "h1": 2585933.39,
+        "h24": 2585933.39
+      },
+      "txns": {
+        "m5Buys": 5,
+        "m5Sells": 3,
+        "h1Buys": 27,
+        "h1Sells": 15
+      },
+      "hourShare": 1.0,
+      "fiveMinutePace": 0.01,
+      "source": "geckoterminal",
+      "links": {
+        "dexscreener": "https://dexscreener.com/base/0x4093fea9c45748c0bcff35f29ca5c467be61fa97",
+        "geckoterminal": "https://www.geckoterminal.com/base/pools/0xb01e4cce62669d47cab6d6b7c2443d9c34a6b8bea652ff3d726d1449c716d9b3"
+      }
+    },
+    {
+      "chain": "base",
+      "symbol": "SOSF",
+      "name": "SOSF \ud83d\udd25",
+      "quote": "WETH",
+      "tokenAddress": "0x0599a1e885439bbdd1429587c71f59dbbfe283bd",
+      "poolAddress": "0xa4e3736ddb64128314686a9ab23d429947cc869895093056afeef3b763d52d9e",
+      "dex": "uniswap-v4-base",
+      "createdAt": "2026-11-16T04:44:28Z",
+      "ageMinutes": 21.9,
+      "priceUsd": 0.0047818373,
+      "fdvUsd": 47818373.18,
+      "reserveUsd": 7173022.65,
+      "volume": {
+        "m5": 142.47,
+        "h1": 37734.01,
+        "h6": 37734.01,
+        "h24": 37734.01
+      },
+      "change": {
+        "m5": -0.26,
+        "h1": -0.26,
+        "h24": -0.26
+      },
+      "txns": {
+        "m5Buys": 5,
+        "m5Sells": 3,
+        "h1Buys": 28,
+        "h1Sells": 18
+      },
+      "hourShare": 1.0,
+      "fiveMinutePace": 0.05,
+      "reasons": [
+        "this hour is a large share of the day's volume",
+        "new pair already trading size"
+      ],
+      "source": "geckoterminal",
+      "links": {
+        "dexscreener": "https://dexscreener.com/base/0x0599a1e885439bbdd1429587c71f59dbbfe283bd",
+        "geckoterminal": "https://www.geckoterminal.com/base/pools/0xa4e3736ddb64128314686a9ab23d429947cc869895093056afeef3b763d52d9e"
+      }
+    },
+    {
+      "chain": "base",
+      "symbol": "AO\u200aDT",
+      "name": "AODT \ud83d\udd25",
+      "quote": "WETH",
+      "tokenAddress": "0x0b917022caa17eeec6fae9dd06cbe8efe390c126",
+      "poolAddress": "0xdc7c6b6fb62768a49033c6ca54b1a990545b3cef73594f7e36b036c7b9d97b18",
+      "dex": "uniswap-v4-base",
+      "createdAt": "2026-11-16T04:45:04Z",
+      "ageMinutes": 21.3,
+      "priceUsd": 0.0047825834,
+      "fdvUsd": 47825834.27,
+      "reserveUsd": 7174141.21,
+      "volume": {
+        "m5": 144.79,
+        "h1": 28454.85,
+        "h6": 28454.85,
+        "h24": 28454.85
+      },
+      "change": {
+        "m5": -0.27,
+        "h1": 438554.83,
+        "h24": 438554.83
+      },
+      "txns": {
+        "m5Buys": 6,
+        "m5Sells": 3,
+        "h1Buys": 29,
+        "h1Sells": 18
+      },
+      "hourShare": 1.0,
+      "fiveMinutePace": 0.06,
+      "reasons": [
+        "this hour is a large share of the day's volume",
+        "price moved hard on real hourly volume",
+        "new pair already trading size"
+      ],
+      "source": "geckoterminal",
+      "links": {
+        "dexscreener": "https://dexscreener.com/base/0x0b917022caa17eeec6fae9dd06cbe8efe390c126",
+        "geckoterminal": "https://www.geckoterminal.com/base/pools/0xdc7c6b6fb62768a49033c6ca54b1a990545b3cef73594f7e36b036c7b9d97b18"
+      }
+    },
+    {
+      "chain": "bsc",
+      "symbol": "Marvin",
+      "name": "Marvin The Martian",
+      "quote": "WBNB",
+      "tokenAddress": "0x4682b48f5a6b2fb94d3c43bdd90da998fae17777",
+      "poolAddress": "0x49fc6ecdd18c05948656e2bd3cb6f87714911485",
+      "dex": "pancakeswap_v2",
+      "createdAt": "2026-11-16T04:54:58Z",
+      "ageMinutes": 11.4,
+      "priceUsd": 6.9151338e-05,
+      "fdvUsd": 69151.34,
+      "reserveUsd": 14258.17,
+      "volume": {
+        "m5": 5466.21,
+        "h1": 20731.7,
+        "h6": 20731.7,
+        "h24": 20731.7
+      },
+      "change": {
+        "m5": 32.78,
+        "h1": 257.5,
+        "h24": 257.5
+      },
+      "txns": {
+        "m5Buys": 22,
+        "m5Sells": 24,
+        "h1Buys": 84,
+        "h1Sells": 102
+      },
+      "hourShare": 1.0,
+      "fiveMinutePace": 0.0,
+      "reasons": [
+        "this hour is a large share of the day's volume",
+        "price moved hard on real hourly volume",
+        "new pair already trading size"
+      ],
+      "source": "geckoterminal",
+      "links": {
+        "dexscreener": "https://dexscreener.com/bsc/0x4682b48f5a6b2fb94d3c43bdd90da998fae17777",
+        "geckoterminal": "https://www.geckoterminal.com/bsc/pools/0x49fc6ecdd18c05948656e2bd3cb6f87714911485"
+      }
+    },
+    {
+      "chain": "bsc",
+      "symbol": "Marvin",
+      "name": "Marvin The Martian",
+      "quote": "WBNB",
+      "tokenAddress": "0x26b01ef97d5b326b840488572698b60e36a17777",
+      "poolAddress": "0x46ee3e47c984bd0c3033fa43343c11c344729afe",
+      "dex": "pancakeswap_v2",
+      "createdAt": "2026-11-16T04:59:14Z",
+      "ageMinutes": 7.1,
+      "priceUsd": 4.0511301e-05,
+      "fdvUsd": 40511.3,
+      "reserveUsd": 10988.66,
+      "volume": {
+        "m5": 8836.57,
+        "h1": 10092.94,
+        "h6": 10092.94,
+        "h24": 10092.94
+      },
+      "change": {
+        "m5": 67.21,
+        "h1": 122.08,
+        "h24": 122.08
+      },
+      "txns": {
+        "m5Buys": 61,
+        "m5Sells": 66,
+        "h1Buys": 75,
+        "h1Sells": 78
+      },
+      "hourShare": 1.0,
+      "fiveMinutePace": 0.0,
+      "reasons": [
+        "new pair already trading size"
+      ],
+      "source": "geckoterminal",
+      "links": {
+        "dexscreener": "https://dexscreener.com/bsc/0x26b01ef97d5b326b840488572698b60e36a17777",
+        "geckoterminal": "https://www.geckoterminal.com/bsc/pools/0x46ee3e47c984bd0c3033fa43343c11c344729afe"
+      }
+    },
+    {
+      "chain": "bsc",
+      "symbol": "Marvin",
+      "name": "Marvin The Martian",
+      "quote": "WBNB",
+      "tokenAddress": "0xdab4592de17c481b54e178c1cb40afd629b57777",
+      "poolAddress": "0x49cbcb110a9fd1f46372f979937e8bd10824c175",
+      "dex": "pancakeswap_v2",
+      "createdAt": "2026-11-16T05:02:22Z",
+      "ageMinutes": 4.0,
+      "priceUsd": 6.9005868e-05,
+      "fdvUsd": 69005.87,
+      "reserveUsd": 24220.27,
+      "volume": {
+        "m5": 7123.97,
+        "h1": 7123.97,
+        "h6": 7123.97,
+        "h24": 7123.97
+      },
+      "change": {
+        "m5": 32.6,
+        "h1": 32.6,
+        "h24": 32.6
+      },
+      "txns": {
+        "m5Buys": 26,
+        "m5Sells": 30,
+        "h1Buys": 26,
+        "h1Sells": 30
+      },
+      "hourShare": 1.0,
+      "fiveMinutePace": 0.0,
+      "reasons": [
+        "new pair already trading size"
+      ],
+      "source": "geckoterminal",
+      "links": {
+        "dexscreener": "https://dexscreener.com/bsc/0xdab4592de17c481b54e178c1cb40afd629b57777",
+        "geckoterminal": "https://www.geckoterminal.com/bsc/pools/0x49cbcb110a9fd1f46372f979937e8bd10824c175"
+      }
+    },
+    {
+      "chain": "base",
+      "symbol": "AO\u200aD\u200aF",
+      "name": "AODF",
+      "quote": "WETH",
+      "tokenAddress": "0x0c0d20663b686d6c98eccd76aa8d2ea07b88e1dd",
+      "poolAddress": "0x8dc2e6b0217d92e50b832622d3be92329a5064acaa791fa7111b3db235deb1d4",
+      "dex": "uniswap-v4-base",
+      "createdAt": "2026-11-16T04:47:16Z",
+      "ageMinutes": 19.1,
+      "priceUsd": 0.032617421,
+      "fdvUsd": 326174213.2,
+      "reserveUsd": 48926675.11,
+      "volume": {
+        "m5": 133.03,
+        "h1": 6569.53,
+        "h6": 6569.53,
+        "h24": 6569.53
+      },
+      "change": {
+        "m5": -0.28,
+        "h1": 2991363.41,
+        "h24": 2991363.41
+      },
+      "txns": {
+        "m5Buys": 6,
+        "m5Sells": 3,
+        "h1Buys": 23,
+        "h1Sells": 13
+      },
+      "hourShare": 1.0,
+      "fiveMinutePace": 0.0,
+      "source": "geckoterminal",
+      "links": {
+        "dexscreener": "https://dexscreener.com/base/0x0c0d20663b686d6c98eccd76aa8d2ea07b88e1dd",
+        "geckoterminal": "https://www.geckoterminal.com/base/pools/0x8dc2e6b0217d92e50b832622d3be92329a5064acaa791fa7111b3db235deb1d4"
+      }
+    },
+    {
+      "chain": "base",
+      "symbol": "NOTF",
+      "name": "NOTF",
+      "quote": "WETH",
+      "tokenAddress": "0x3774d89b8c58165e2e9fc62a24048b72081376e5",
+      "poolAddress": "0xfe9a9a535c49b533634cc4e2ec41ebb301df7acc3fa260fe6285116a49499b49",
+      "dex": "uniswap-v4-base",
+      "createdAt": "2026-11-16T04:46:41Z",
+      "ageMinutes": 19.7,
+      "priceUsd": 0.0046687676,
+      "fdvUsd": 46687675.55,
+      "reserveUsd": 7003694.98,
+      "volume": {
+        "m5": 142.28,
+        "h1": 3849.01,
+        "h6": 3849.01,
+        "h24": 3849.01
+      },
+      "change": {
+        "m5": -0.26,
+        "h1": 428089.81,
+        "h24": 428089.81
+      },
+      "txns": {
+        "m5Buys": 5,
+        "m5Sells": 3,
+        "h1Buys": 24,
+        "h1Sells": 13
+      },
+      "hourShare": 1.0,
+      "fiveMinutePace": 0.0,
+      "reasons": [
+        "new pair already trading size"
+      ],
+      "source": "geckoterminal",
+      "links": {
+        "dexscreener": "https://dexscreener.com/base/0x3774d89b8c58165e2e9fc62a24048b72081376e5",
+        "geckoterminal": "https://www.geckoterminal.com/base/pools/0xfe9a9a535c49b533634cc4e2ec41ebb301df7acc3fa260fe6285116a49499b49"
+      }
+    },
+    {
+      "chain": "base",
+      "symbol": "DOTF",
+      "name": "Digital Oil Trust Fund",
+      "quote": "WETH",
+      "tokenAddress": "0x3c2387426243e1272c84a388f26c85b5e2ffbe32",
+      "poolAddress": "0x41ad66128466d2b5f1ec686afcfac018bab90e263c7b607504fe2f23d489ce77",
+      "dex": "uniswap-v4-base",
+      "createdAt": "2026-11-16T04:48:59Z",
+      "ageMinutes": 17.4,
+      "priceUsd": 0.0028890005,
+      "fdvUsd": 28890005.18,
+      "reserveUsd": 4333605.09,
+      "volume": {
+        "m5": 131.65,
+        "h1": 3205.19,
+        "h6": 3205.19,
+        "h24": 3205.19
+      },
+      "change": {
+        "m5": -0.26,
+        "h1": 530002.54,
+        "h24": 530002.54
+      },
+      "txns": {
+        "m5Buys": 5,
+        "m5Sells": 3,
+        "h1Buys": 20,
+        "h1Sells": 11
+      },
+      "hourShare": 1.0,
+      "fiveMinutePace": 0.0,
+      "reasons": [
+        "new pair already trading size"
+      ],
+      "source": "geckoterminal",
+      "links": {
+        "dexscreener": "https://dexscreener.com/base/0x3c2387426243e1272c84a388f26c85b5e2ffbe32",
+        "geckoterminal": "https://www.geckoterminal.com/base/pools/0x41ad66128466d2b5f1ec686afcfac018bab90e263c7b607504fe2f23d489ce77"
+      }
+    },
+    {
+      "chain": "bsc",
+      "symbol": "GM",
+      "name": "GREEN MORNING",
+      "quote": "WBNB",
+      "tokenAddress": "0x86524de4597092d2e3fba8dc81844ed536b5d3c8",
+      "poolAddress": "0x0bc2017b7c9743167823f8295efe65f1e98bc5b8",
+      "dex": "pancakeswap_v2",
+      "createdAt": "2026-11-16T04:59:43Z",
+      "ageMinutes": 6.6,
+      "priceUsd": 9.8179975e-06,
+      "fdvUsd": 76580.38,
+      "reserveUsd": 147469.32,
+      "volume": {
+        "m5": 3051.16,
+        "h1": 3051.16,
+        "h6": 3051.16,
+        "h24": 3051.16
+      },
+      "change": {
+        "m5": 6.84,
+        "h1": 6.84,
+        "h24": 6.84
+      },
+      "txns": {
+        "m5Buys": 5,
+        "m5Sells": 0,
+        "h1Buys": 5,
+        "h1Sells": 0
+      },
+      "hourShare": 1.0,
+      "fiveMinutePace": 0.0,
+      "reasons": [
+        "new pair already trading size"
+      ],
+      "source": "geckoterminal",
+      "links": {
+        "dexscreener": "https://dexscreener.com/bsc/0x86524de4597092d2e3fba8dc81844ed536b5d3c8",
+        "geckoterminal": "https://www.geckoterminal.com/bsc/pools/0x0bc2017b7c9743167823f8295efe65f1e98bc5b8"
+      }
+    },
+    {
+      "chain": "solana",
+      "symbol": "Inuployed",
+      "name": "Inuployed",
+      "quote": "SOL",
+      "tokenAddress": "8KqZD7dy2rzPPQRYadGeHQufRUk2FuVv3tb9TAgxpump",
+      "poolAddress": "HkYND9Zqadut6sfRiLz7WFojdY7DYWSQHsETsTt73mjm",
+      "dex": "pump-fun",
+      "createdAt": "2026-11-16T05:04:46Z",
+      "ageMinutes": 1.6,
+      "priceUsd": 8.0015186e-06,
+      "fdvUsd": 5657.54,
+      "reserveUsd": 3487.6,
+      "volume": {
+        "m5": 2934.64,
+        "h1": 2934.64,
+        "h6": 2934.64,
+        "h24": 2934.64
+      },
+      "change": {
+        "m5": 96.71,
+        "h1": 96.71,
+        "h24": 96.71
+      },
+      "txns": {
+        "m5Buys": 52,
+        "m5Sells": 17,
+        "h1Buys": 52,
+        "h1Sells": 17
+      },
+      "hourShare": 1.0,
+      "fiveMinutePace": 0.0,
+      "reasons": [
+        "new pair already trading size"
+      ],
+      "source": "geckoterminal",
+      "links": {
+        "dexscreener": "https://dexscreener.com/solana/8KqZD7dy2rzPPQRYadGeHQufRUk2FuVv3tb9TAgxpump",
+        "geckoterminal": "https://www.geckoterminal.com/solana/pools/HkYND9Zqadut6sfRiLz7WFojdY7DYWSQHsETsTt73mjm"
+      }
+    },
+    {
+      "chain": "base",
+      "symbol": "NUCLEAR U.S RESERVE",
+      "name": "USNR",
+      "quote": "WETH",
+      "tokenAddress": "0x391ffc9697ea3a2303d16bbbf4e2049d12695faa",
+      "poolAddress": "0x2f2d70e7e8181f2321e8d9c9607544e600cac5ba655a91036aec5cdaab183915",
+      "dex": "uniswap-v4-base",
+      "createdAt": "2026-11-16T04:48:24Z",
+      "ageMinutes": 17.9,
+      "priceUsd": 0.0037842649,
+      "fdvUsd": 37842649.44,
+      "reserveUsd": 5676937.96,
+      "volume": {
+        "m5": 150.35,
+        "h1": 2178.67,
+        "h6": 2178.67,
+        "h24": 2178.67
+      },
+      "change": {
+        "m5": -0.26,
+        "h1": 347037.59,
+        "h24": 347037.59
+      },
+      "txns": {
+        "m5Buys": 5,
+        "m5Sells": 3,
+        "h1Buys": 20,
+        "h1Sells": 11
+      },
+      "hourShare": 1.0,
+      "fiveMinutePace": 0.0,
+      "source": "geckoterminal",
+      "links": {
+        "dexscreener": "https://dexscreener.com/base/0x391ffc9697ea3a2303d16bbbf4e2049d12695faa",
+        "geckoterminal": "https://www.geckoterminal.com/base/pools/0x2f2d70e7e8181f2321e8d9c9607544e600cac5ba655a91036aec5cdaab183915"
+      }
+    },
+    {
+      "chain": "base",
+      "symbol": "ANTHROPIC",
+      "name": "ANTHROPIC",
+      "quote": "WETH",
+      "tokenAddress": "0xfd80a42b4b785d6d9bc14ef1692bbbe93520f6fb",
+      "poolAddress": "0x0b0804b6260b1ff405b762210045fef2a5c3ef6a",
+      "dex": "uniswap-v2-base",
+      "createdAt": "2026-11-16T04:47:17Z",
+      "ageMinutes": 19.1,
+      "priceUsd": 1.4352835e-14,
+      "fdvUsd": 0.0,
+      "reserveUsd": 0.0,
+      "volume": {
+        "m5": 141.03,
+        "h1": 2144.27,
+        "h6": 2144.27,
+        "h24": 2144.27
+      },
+      "change": {
+        "m5": -100.0,
+        "h1": -100.0,
+        "h24": -100.0
+      },
+      "txns": {
+        "m5Buys": 9,
+        "m5Sells": 2,
+        "h1Buys": 56,
+        "h1Sells": 10
+      },
+      "hourShare": 1.0,
+      "fiveMinutePace": 0.0,
+      "source": "geckoterminal",
+      "links": {
+        "dexscreener": "https://dexscreener.com/base/0xfd80a42b4b785d6d9bc14ef1692bbbe93520f6fb",
+        "geckoterminal": "https://www.geckoterminal.com/base/pools/0x0b0804b6260b1ff405b762210045fef2a5c3ef6a"
+      }
+    },
+    {
+      "chain": "base",
+      "symbol": "NAOF",
+      "name": "NAOF \ud83d\udd25",
+      "quote": "WETH",
+      "tokenAddress": "0x13fa26f03bcb5cde4e6e26eb9c31115d82139fda",
+      "poolAddress": "0x5c1414bbff0d8cb619cb88ab3f0e0f49515e266482c1cbaf8fd2ddb4be401bc7",
+      "dex": "uniswap-v4-base",
+      "createdAt": "2026-11-16T04:47:52Z",
+      "ageMinutes": 18.5,
+      "priceUsd": 0.0038760706,
+      "fdvUsd": 38760706.3,
+      "reserveUsd": 5814425.12,
+      "volume": {
+        "m5": 164.24,
+        "h1": 1466.32,
+        "h6": 1466.32,
+        "h24": 1466.32
+      },
+      "change": {
+        "m5": -0.26,
+        "h1": 355388.66,
+        "h24": 355388.66
+      },
+      "txns": {
+        "m5Buys": 6,
+        "m5Sells": 3,
+        "h1Buys": 21,
+        "h1Sells": 13
+      },
+      "hourShare": 1.0,
+      "fiveMinutePace": 0.0,
+      "source": "geckoterminal",
+      "links": {
+        "dexscreener": "https://dexscreener.com/base/0x13fa26f03bcb5cde4e6e26eb9c31115d82139fda",
+        "geckoterminal": "https://www.geckoterminal.com/base/pools/0x5c1414bbff0d8cb619cb88ab3f0e0f49515e266482c1cbaf8fd2ddb4be401bc7"
+      }
+    },
+    {
+      "chain": "base",
+      "symbol": "LIQUIDBGT",
+      "name": "X1000XLiquidBGT",
+      "quote": "WETH",
+      "tokenAddress": "0x32b9710a51c364e5ad1fff2db29af893bc4d5171",
+      "poolAddress": "0x2d418e23fdd9b4f65070dc178d844acddb17d343",
+      "dex": "uniswap-v2-base",
+      "createdAt": "2026-11-16T04:50:24Z",
+      "ageMinutes": 15.9,
+      "priceUsd": 1.6427545e-06,
+      "fdvUsd": 9199.43,
+      "reserveUsd": 16116.96,
+      "volume": {
+        "m5": 248.3,
+        "h1": 1430.88,
+        "h6": 1430.88,
+        "h24": 1430.88
+      },
+      "change": {
+        "m5": 4.07,
+        "h1": 29.41,
+        "h24": 29.41
+      },
+      "txns": {
+        "m5Buys": 18,
+        "m5Sells": 2,
+        "h1Buys": 60,
+        "h1Sells": 6
+      },
+      "hourShare": 1.0,
+      "fiveMinutePace": 0.0,
+      "source": "geckoterminal",
+      "links": {
+        "dexscreener": "https://dexscreener.com/base/0x32b9710a51c364e5ad1fff2db29af893bc4d5171",
+        "geckoterminal": "https://www.geckoterminal.com/base/pools/0x2d418e23fdd9b4f65070dc178d844acddb17d343"
+      }
+    },
+    {
+      "chain": "bsc",
+      "symbol": "BBX",
+      "name": "Blackbox",
+      "quote": "WBNB",
+      "tokenAddress": "0x7c9a39f831ecb38ce242e63c61ff0aab398265b8",
+      "poolAddress": "0x61631cda8237c5713e2ba907f7655104c6a6d7aa",
+      "dex": "pancakeswap_v2",
+      "createdAt": "2026-11-16T04:57:18Z",
+      "ageMinutes": 9.0,
+      "priceUsd": 7.0493295e-06,
+      "fdvUsd": 7049.33,
+      "reserveUsd": 13276.44,
+      "volume": {
+        "m5": 388.34,
+        "h1": 1068.75,
+        "h6": 1068.75,
+        "h24": 1068.75
+      },
+      "change": {
+        "m5": 2.21,
+        "h1": 11.59,
+        "h24": 11.59
+      },
+      "txns": {
+        "m5Buys": 3,
+        "m5Sells": 5,
+        "h1Buys": 8,
+        "h1Sells": 9
+      },
+      "hourShare": 1.0,
+      "fiveMinutePace": 0.0,
+      "source": "geckoterminal",
+      "links": {
+        "dexscreener": "https://dexscreener.com/bsc/0x7c9a39f831ecb38ce242e63c61ff0aab398265b8",
+        "geckoterminal": "https://www.geckoterminal.com/bsc/pools/0x61631cda8237c5713e2ba907f7655104c6a6d7aa"
+      }
+    },
+    {
+      "chain": "base",
+      "symbol": "BNKRCAT",
+      "name": "Bankr cat",
+      "quote": "ETH",
+      "tokenAddress": "0xb200000000000000000000e0cd4a82336df7da0b",
+      "poolAddress": "0xd33e6f73c7e2e787fafdb45fd0e6f6d7a866ca0fed9afa329d572b78c20d69fa",
+      "dex": "uniswap-v4-base",
+      "createdAt": "2026-11-16T04:47:22Z",
+      "ageMinutes": 19.0,
+      "priceUsd": 4.3437779e-06,
+      "fdvUsd": 4343.78,
+      "reserveUsd": 4304.89,
+      "volume": {
+        "m5": 442.7,
+        "h1": 1006.4,
+        "h6": 1006.4,
+        "h24": 1006.4
+      },
+      "change": {
+        "m5": 2.96,
+        "h1": 19.32,
+        "h24": 19.32
+      },
+      "txns": {
+        "m5Buys": 9,
+        "m5Sells": 46,
+        "h1Buys": 46,
+        "h1Sells": 63
+      },
+      "hourShare": 1.0,
+      "fiveMinutePace": 0.0,
+      "source": "geckoterminal",
+      "links": {
+        "dexscreener": "https://dexscreener.com/base/0xb200000000000000000000e0cd4a82336df7da0b",
+        "geckoterminal": "https://www.geckoterminal.com/base/pools/0xd33e6f73c7e2e787fafdb45fd0e6f6d7a866ca0fed9afa329d572b78c20d69fa"
+      }
+    },
+    {
+      "chain": "base",
+      "symbol": "Uranus",
+      "name": "Uranus",
+      "quote": "ETH",
+      "tokenAddress": "0xaa0cafb4c337240fb40e7d49074aff8748dd7b0c",
+      "poolAddress": "0xaa8bf7659c9de413085cd46175bf53d022bf541eb4a32c436584241db8a73fd8",
+      "dex": "uniswap-v4-base",
+      "createdAt": "2026-11-16T05:01:53Z",
+      "ageMinutes": 4.5,
+      "priceUsd": 1.4407004e-06,
+      "fdvUsd": 1440.7,
+      "volume": {
+        "m5": 965.85,
+        "h1": 965.85,
+        "h6": 965.85,
+        "h24": 965.85
+      },
+      "change": {
+        "m5": 55.81,
+        "h1": 55.81,
+        "h24": 55.81
+      },
+      "txns": {
+        "m5Buys": 4,
+        "m5Sells": 1,
+        "h1Buys": 4,
+        "h1Sells": 1
+      },
+      "hourShare": 1.0,
+      "fiveMinutePace": 0.0,
+      "reasons": [
+        "new pair already trading size"
+      ],
+      "source": "geckoterminal",
+      "links": {
+        "dexscreener": "https://dexscreener.com/base/0xaa0cafb4c337240fb40e7d49074aff8748dd7b0c",
+        "geckoterminal": "https://www.geckoterminal.com/base/pools/0xaa8bf7659c9de413085cd46175bf53d022bf541eb4a32c436584241db8a73fd8"
+      }
+    }
+  ]
+}
