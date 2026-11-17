@@ -61,7 +61,11 @@
   <main>
     <p class="note" id="note"></p>
     <section>
-      <h2>Volume spikes</h2>
+      <h2>On the fomo list</h2>
+      <div class="scroll" id="fomo"></div>
+    </section>
+    <section>
+      <h2>Volume spikes off the list</h2>
       <div class="scroll" id="spikes"></div>
     </section>
     <section>
@@ -120,6 +124,33 @@
       })[ch]);
     }
 
+    function multiple(value) {
+      if (value == null) return "—";
+      return value.toFixed(1) + "×";
+    }
+
+    function fomoTable(rows) {
+      if (!rows || !rows.length) return '<p class="empty">No listed meme cleared the pace rule this hour.</p>';
+      const head = "<tr><th>Chain</th><th>Pair</th><th>Window</th><th>Age</th><th>5m vol</th><th>1h vol</th><th>5m pace</th><th>1h pace</th><th>1h</th><th>Liquidity</th><th>Trades</th></tr>";
+      const body = rows.map((row) => {
+        const ageHours = row.ageHours;
+        const ageText = ageHours == null ? "—" : age(ageHours * 60);
+        return "<tr><td>" + escapeHtml(row.chain || "—") + "</td>" +
+          "<td><span class=\"sym\">" + escapeHtml(row.symbol || "") + "</span><span class=\"sub\">" +
+          escapeHtml((row.name || "") + (row.base ? " / " + row.base : "")) + "</span></td>" +
+          "<td>" + escapeHtml(row.window || "—") + "</td>" +
+          "<td>" + ageText + "</td>" +
+          "<td>" + money(row.volume5m) + "</td>" +
+          "<td>" + money(row.volume1h) + "</td>" +
+          "<td>" + multiple(row.multiple5m) + "</td>" +
+          "<td>" + multiple(row.multiple1h) + "</td>" +
+          "<td>" + change((row.change1h || 0) * 100) + "</td>" +
+          "<td>" + money(row.liquidity) + "</td>" +
+          "<td>" + (row.tx1h == null ? "—" : row.tx1h) + "</td></tr>";
+      }).join("");
+      return "<table>" + head + body + "</table>";
+    }
+
     function table(rows, empty) {
       if (!rows || !rows.length) return '<p class="empty">' + empty + "</p>";
       const head = "<tr><th>Chain</th><th>Pair</th><th>Age</th><th>5m vol</th><th>1h vol</th><th>24h vol</th><th>1h</th><th>Liquidity</th><th>FDV</th><th>Dex</th></tr>";
@@ -143,12 +174,16 @@
       })
       .then((scan) => {
         const counts = scan.counts || {};
+        const fomo = scan.fomoCatalog || {};
+        const pace = fomo.paceSpikes || [];
         document.getElementById("meta").textContent =
           "Scanned " + scan.scannedAt + " · " +
-          counts.volumeSpikes + " spikes · " +
-          counts.newPairsWithVolume + " new pairs with volume · " +
-          counts.poolsRead + " pools read";
+          (fomo.feedCount || 0) + " tokens on fomo · " +
+          pace.length + " listed pace spikes · " +
+          counts.volumeSpikes + " off-list spikes · " +
+          counts.newPairsWithVolume + " new pairs with volume";
         document.getElementById("note").textContent = (scan.fomoApp && scan.fomoApp.note) || "";
+        document.getElementById("fomo").innerHTML = fomoTable(pace);
         document.getElementById("spikes").innerHTML = table(scan.volumeSpikes, "No volume spike cleared the filter this hour.");
         document.getElementById("fresh").innerHTML = table(scan.newPairs, "No new pair with size this hour.");
         document.getElementById("opened").innerHTML = table(scan.justOpened, "No just-opened pool had meaningful trades.");

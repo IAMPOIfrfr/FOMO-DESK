@@ -1,11 +1,10 @@
 #!/usr/bin/env python3
 """Hourly scan of new pairs and volume spikes for the shared FOMO desk.
 
-fomo.family's discover board loads only in a signed-in session, and its API
-rejects calls that are not that session. This scanner does not log in and does
-not call prod-api.fomo.family. It reads public pool data for the chains that
-app trades: Solana, Base, and BNB Chain from GeckoTerminal, plus DexScreener
-boosts (those also include Robinhood Chain).
+Discover on fomo.family loads only in a signed-in session. This scanner does
+not log in. It reads the public price feed for tokens already on that app, and
+public pools on Solana, Base, and BNB Chain from GeckoTerminal, plus
+DexScreener boosts (those also include Robinhood Chain).
 """
 
 from __future__ import annotations
@@ -20,6 +19,26 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent
 GECKO = "https://api.geckoterminal.com/api/v2"
 DEX = "https://api.dexscreener.com"
+FOMO_PRICES = "https://prod-api.fomo.family/public/prices"
+FOMO_NETWORKS = {
+    1399811149: "Solana",
+    1: "Ethereum",
+    8453: "Base",
+    4663: "Robinhood",
+    56: "BNB Chain",
+    143: "Monad",
+    5042: "Arc",
+}
+MEME_LAUNCHPADS = {
+    "Pump.fun",
+    "Four.meme",
+    "Flap",
+    "StonkFun",
+    "pons",
+    "LaunchLab",
+    "Nad.Fun",
+    "LONG",
+}
 CHAINS = ("solana", "base", "bsc")
 DEX_CHAINS = ("solana", "base", "bsc", "ethereum", "robinhood")
 MAJORS = {
@@ -316,7 +335,8 @@ def is_spike(row: dict) -> bool:
     reserve = row["reserveUsd"]
     if h1 < 15000:
         return False
-    if reserve and reserve < 8000:
+    # A missing or zero reserve used to pass this check and publish an empty pool.
+    if reserve < 8000:
         return False
     return any(reason != "new pair already trading size" for reason in row["reasons"])
 
@@ -397,6 +417,202 @@ def dedupe(rows: list[dict]) -> list[dict]:
     return list(best.values())
 
 
+def fomo_number(value: object) -> float:
+    return amount(value)
+
+
+def parse_fomo_token(item: dict, now: datetime) -> dict | None:
+    allowlist = item.get("allowlist") or {}
+    market = item.get("marketData") or {}
+    token = market.get("token") or {}
+    info = token.get("info") or {}
+    address = allowlist.get("tokenAddress") or token.get("address")
+    if not address:
+        return None
+    launchpad = ((token.get("launchpad") or {}).get("launchpadName")) or ""
+    categories = allowlist.get("categories") or []
+    created = market.get("createdAt") or token.get("createdAt")
+    age_hours = None
+    if created:
+        age_hours = (now.timestamp() - float(created)) / 3600
+    listed_hours = None
+    if allowlist.get("createdAt"):
+        listed_hours = iso_age_minutes(allowlist.get("createdAt"), now)
+        if listed_hours is not None:
+            listed_hours = listed_hours / 60
+    volume_5m = fomo_number(market.get("volume5m"))
+    volume_1h = fomo_number(market.get("volume1"))
+    volume_24h = fomo_number(market.get("volume24"))
+    liquidity = fomo_number(market.get("liquidity"))
+    average_5m = volume_24h / 288 if volume_24h else 0.0
+    average_1h = volume_24h / 24 if volume_24h else 0.0
+    multiple_5m = (volume_5m / average_5m) if average_5m else 0.0
+    multiple_1h = (volume_1h / average_1h) if average_1h else 0.0
+    meme = ("Memes" in categories or launchpad in MEME_LAUNCHPADS) and launchpad != "Meteora Alpha Vault"
+    collapsed = volume_5m > 0 and abs(volume_5m - volume_1h) < 0.01 and abs(volume_1h - volume_24h) < 0.01
+    pace_5m = liquidity >= 50_000 and volume_5m >= 2_000 and multiple_5m >= 8 and not collapsed
+    pace_1h = liquidity >= 50_000 and volume_1h >= 8_000 and multiple_1h >= 3.5 and not collapsed
+    network_id = allowlist.get("networkId") or token.get("networkId")
+    if pace_5m and pace_1h:
+        window = "Both"
+    elif pace_5m:
+        window = "5m"
+    elif pace_1h:
+        window = "1h"
+    else:
+        window = ""
+    return {
+        "symbol": allowlist.get("ticker") or token.get("symbol") or info.get("symbol") or "?",
+        "name": info.get("name") or token.get("name") or allowlist.get("name") or "",
+        "address": address,
+        "chain": FOMO_NETWORKS.get(network_id, "unknown"),
+        "networkId": network_id,
+        "launchpad": launchpad,
+        "categories": categories,
+        "meme": meme,
+        "ageHours": None if age_hours is None else round(age_hours, 2),
+        "listedHours": None if listed_hours is None else round(listed_hours, 2),
+        "marketCap": round(fomo_number(market.get("marketCap")), 2),
+        "liquidity": round(liquidity, 2),
+        "volume5m": round(volume_5m, 2),
+        "volume1h": round(volume_1h, 2),
+        "volume24h": round(volume_24h, 2),
+        "change1h": round(fomo_number(market.get("change1")), 4),
+        "pair": ((market.get("pair") or {}).get("protocol")) or "",
+        "base": ((market.get("basePair") or {}).get("symbol")) or "",
+        "holders": market.get("holders"),
+        "tx1h": market.get("txnCount1"),
+        "hidden": bool(market.get("isHiddenFromDiscovery")),
+        "multiple5m": round(multiple_5m, 2),
+        "multiple1h": round(multiple_1h, 2),
+        "window": window,
+    }
+
+
+def build_fomo_catalog(
+    now: datetime,
+    payload: dict | None = None,
+    prior_tokens: list[dict] | None = None,
+    compared_with: str | None = None,
+) -> tuple[dict, list[dict]]:
+    if payload is None:
+        payload = get_json(FOMO_PRICES)
+    raw_tokens = ((payload.get("responseObject") or {}).get("tokens")) or []
+    rows = [row for item in raw_tokens if (row := parse_fomo_token(item, now))]
+    visible = [row for row in rows if not row["hidden"]]
+    memes = [row for row in visible if row["meme"]]
+    spikes = [row for row in memes if row["window"]]
+    spikes.sort(key=lambda row: (-(row["window"] == "Both"), -row["volume5m"], -row["volume1h"]))
+
+    def brief(row: dict) -> dict:
+        keep = (
+            "symbol",
+            "name",
+            "chain",
+            "address",
+            "launchpad",
+            "pair",
+            "base",
+            "window",
+            "ageHours",
+            "listedHours",
+            "marketCap",
+            "liquidity",
+            "volume5m",
+            "volume1h",
+            "volume24h",
+            "change1h",
+            "holders",
+            "tx1h",
+            "multiple5m",
+            "multiple1h",
+            "meme",
+        )
+        return {key: row[key] for key in keep if row.get(key) not in (None, "", [])}
+
+    newest = sorted((row for row in visible if row["ageHours"] is not None), key=lambda row: row["ageHours"])
+    newest_meme = sorted((row for row in memes if row["ageHours"] is not None), key=lambda row: row["ageHours"])
+    prior = {str(row.get("address") or "").lower(): row for row in (prior_tokens or [])}
+    current_addresses = {row["address"].lower() for row in rows}
+    prior_addresses = set(prior)
+    joined = [brief(row) for row in rows if row["address"].lower() not in prior_addresses] if prior else []
+    left = [
+        {"symbol": prior[addr].get("symbol"), "chain": prior[addr].get("network") or prior[addr].get("chain"), "address": prior[addr].get("address")}
+        for addr in sorted(prior_addresses - current_addresses)
+    ] if prior else []
+    prior_spikes = {
+        str(row.get("address") or "").lower(): row.get("symbol")
+        for row in (prior_tokens or [])
+        if row.get("paceWindow") or row.get("window")
+    }
+    # Prior snapshots from this scanner store pace on the side, not on every token.
+    tape = []
+    if prior:
+        for row in memes:
+            previous = prior.get(row["address"].lower())
+            if not previous:
+                continue
+            previous_5m = amount(previous.get("volume5m"))
+            previous_1h = amount(previous.get("volume1h"))
+            if abs(row["volume5m"] - previous_5m) >= 8_000 or abs(row["volume1h"] - previous_1h) >= 40_000:
+                tape.append(
+                    {
+                        "symbol": row["symbol"],
+                        "name": row["name"],
+                        "chain": row["chain"],
+                        "address": row["address"],
+                        "base": row["base"],
+                        "previous5m": round(previous_5m, 2),
+                        "volume5m": row["volume5m"],
+                        "previous1h": round(previous_1h, 2),
+                        "volume1h": row["volume1h"],
+                        "change1h": row["change1h"],
+                        "multiple5m": row["multiple5m"],
+                        "multiple1h": row["multiple1h"],
+                        "liquidity": row["liquidity"],
+                        "marketCap": row["marketCap"],
+                        "tx1h": row["tx1h"],
+                    }
+                )
+        tape.sort(
+            key=lambda row: -max(
+                abs(row["volume5m"] - row["previous5m"]),
+                abs(row["volume1h"] - row["previous1h"]),
+            )
+        )
+    catalog = {
+        "source": FOMO_PRICES,
+        "signedInDiscover": "https://fomo.family/discover",
+        "feedCount": len(rows),
+        "hidden": sum(1 for row in rows if row["hidden"]),
+        "memeCount": len(memes),
+        "createdLast24h": sum(1 for row in visible if row["ageHours"] is not None and row["ageHours"] <= 24),
+        "createdLast7d": sum(1 for row in visible if row["ageHours"] is not None and row["ageHours"] <= 24 * 7),
+        "joined": joined[:20],
+        "left": left[:20],
+        "newestPair": brief(newest[0]) if newest else None,
+        "newestMeme": brief(newest_meme[0]) if newest_meme else None,
+        "paceRule": (
+            "Meme means category Memes or launchpad Pump.fun, Four.meme, Flap, StonkFun, "
+            "pons, LaunchLab, Nad.Fun, or LONG. Meteora Alpha Vault is excluded. "
+            "A pace spike needs liquidity of at least $50,000 and either 5-minute volume "
+            "of at least $2,000 and at least 8x the token's own average 5-minute volume, "
+            "or 1-hour volume of at least $8,000 and at least 3.5x its average hour. "
+            "A collapsed print where 5-minute, 1-hour, and 24-hour volume match is left off."
+        ),
+        "paceSpikes": [brief(row) for row in spikes],
+        "tape": tape[:12],
+    }
+    if compared_with:
+        catalog["comparedWith"] = compared_with
+    if prior_spikes:
+        current_spike_addresses = {row["address"].lower() for row in spikes}
+        catalog["paceJoined"] = [row["symbol"] for row in spikes if row["address"].lower() not in prior_spikes]
+        catalog["paceStayed"] = [row["symbol"] for row in spikes if row["address"].lower() in prior_spikes]
+        catalog["paceLeft"] = [prior_spikes[addr] for addr in prior_spikes if addr not in current_spike_addresses]
+    return catalog, rows
+
+
 def main() -> None:
     now = datetime.now(timezone.utc)
     pools: list[dict] = []
@@ -446,10 +662,10 @@ def main() -> None:
             "boards": ["Trending", "Bonding", "Graduated"],
             "signedInSessionRequired": True,
             "note": (
-                "fomo.family does not publish its token boards without a signed-in "
-                "session. This desk scans public pools on Solana, Base, and BNB Chain, "
-                "the main chains that app trades, and DexScreener boosts, which also "
-                "include Robinhood Chain. It does not place trades."
+                "Discover on fomo.family still needs a signed-in session. This desk reads "
+                "the public price feed for tokens already listed there, plus public pools "
+                "on Solana, Base, and BNB Chain and DexScreener boosts for pairs that are "
+                "not listed yet. It does not log in and does not place trades."
             ),
         },
         "counts": {
@@ -468,8 +684,31 @@ def main() -> None:
     data_dir = ROOT / "data"
     scans_dir = data_dir / "scans"
     scans_dir.mkdir(parents=True, exist_ok=True)
+    feed_path = data_dir / "fomo-feed.json"
+    prior_tokens = None
+    compared_with = None
+    if feed_path.exists():
+        prior_doc = json.loads(feed_path.read_text())
+        prior_tokens = prior_doc.get("tokens") or []
+        compared_with = prior_doc.get("retrievedAt")
+    catalog, feed_rows = build_fomo_catalog(now, prior_tokens=prior_tokens, compared_with=compared_with)
+    scan["fomoCatalog"] = catalog
+    scan["counts"]["fomoFeed"] = catalog["feedCount"]
+    scan["counts"]["fomoPaceSpikes"] = len(catalog["paceSpikes"])
     latest = data_dir / "latest.json"
     hour_file = scans_dir / f"{now.strftime('%Y-%m-%dT%H')}.json"
+    feed_path.write_text(
+        json.dumps(
+            {
+                "retrievedAt": scan["scannedAt"],
+                "source": FOMO_PRICES,
+                "feedCount": len(feed_rows),
+                "tokens": feed_rows,
+            },
+            indent=2,
+        )
+        + "\n"
+    )
     text = json.dumps(scan, indent=2) + "\n"
     latest.write_text(text)
     hour_file.write_text(text)

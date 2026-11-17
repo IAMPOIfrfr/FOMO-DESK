@@ -6,9 +6,11 @@ The page is `index.html`. The machine-readable scan is `data/latest.json`. One c
 
 ## What the scan is
 
-fomo.family's Discover board (Trending, Bonding, Graduated) loads only in a signed-in session. This desk does not log in and does not call fomo's private API. It reads public pools on Solana, Base, and BNB Chain, the main chains that app trades, plus DexScreener boosts, which also include Robinhood Chain.
+fomo.family's Discover board (Trending, Bonding, Graduated) loads only in a signed-in session. This desk does not log in. It reads the public price feed for tokens already on that app, plus public pools on Solana, Base, and BNB Chain and DexScreener boosts, which also include Robinhood Chain.
 
-A volume spike is a pool under a $50M FDV with at least $15k traded in the last hour, enough liquidity to not be an empty pool, and either a heavy share of the day's volume in that hour or a sharp hourly price move. New pairs are pools younger than 18 hours that have already traded size. Just-opened rows are pools from the last 45 minutes that already have trades.
+A volume spike is a pool under a $50M FDV with at least $15k traded in the last hour, at least $8k of liquidity, and either a heavy share of the day's volume in that hour or a sharp hourly price move. New pairs are pools younger than 18 hours that have already traded size. Just-opened rows are pools from the last 45 minutes that already have trades.
+
+Listed fomo memes are scored separately in `fomoCatalog`. A listed pace spike has at least $50k of liquidity and either a 5-minute print of at least $2,000 at 8× that token's own average 5-minute volume, or an hour of at least $8,000 at 3.5× its average hour.
 
 Nothing here places an order.
 
