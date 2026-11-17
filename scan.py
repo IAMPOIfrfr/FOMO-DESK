@@ -543,7 +543,7 @@ def build_fomo_catalog(
     prior_spikes = {
         str(row.get("address") or "").lower(): row.get("symbol")
         for row in (prior_tokens or [])
-        if row.get("paceWindow") or row.get("window")
+        if row.get("meme") and (row.get("paceWindow") or row.get("window"))
     }
     # Prior snapshots from this scanner store pace on the side, not on every token.
     tape = []
@@ -610,6 +610,19 @@ def build_fomo_catalog(
         catalog["paceJoined"] = [row["symbol"] for row in spikes if row["address"].lower() not in prior_spikes]
         catalog["paceStayed"] = [row["symbol"] for row in spikes if row["address"].lower() in prior_spikes]
         catalog["paceLeft"] = [prior_spikes[addr] for addr in prior_spikes if addr not in current_spike_addresses]
+    live = []
+    stale = []
+    for row in spikes:
+        previous = prior.get(row["address"].lower())
+        unchanged = (
+            previous is not None
+            and abs(row["volume5m"] - amount(previous.get("volume5m"))) < 0.01
+            and abs(row["volume1h"] - amount(previous.get("volume1h"))) < 0.01
+            and abs(row["volume24h"] - amount(previous.get("volume24h"))) < 0.01
+        )
+        (stale if unchanged else live).append(row["symbol"])
+    catalog["livePace"] = live
+    catalog["stalePace"] = stale
     return catalog, rows
 
 
